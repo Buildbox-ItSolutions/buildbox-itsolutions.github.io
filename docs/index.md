@@ -17,5 +17,5 @@ Estes padrões têm dois objetivos principais:
 
 Os padrões estão organizados em 2 áreas, conforme abaixo
 
-* [Legibilidade](1-Legibilidade/1-nomenclature.md) - Tornam o código autoexplicativo e fácil de entender
-* [Padrões de Design](2-design-patterns/design-patterns.md) - Possibilitam a atualização e evolução do código
+* [Legibilidade (Clean Code)](1-Clean-Code/1-nomenclature.md) - Tornan o código autoexplicativo e fácil de entender
+* [Padrões de Design](2-Design-Patterns/design-patterns.md) - Possibilitam a atualização e evolução do código
