@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Padrões de Design - code-rules</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Padr\u00f5es de Design";
+        var mkdocs_page_input_path = "2-design-patterns\\design-patterns.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> code-rules
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Padrões de Código</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1 Legibilidade</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Legibilidade/1-nomenclature/">1.1- Nomenclatura</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Legibilidade/2-code-structure/">1.2- Estrutura do código</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Legibilidade/3-flow-control/">1.3- Controle do fluxo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Legibilidade/4-functions/">1.4- Funções e métodos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Legibilidade/5-vscode-config/">1.5- Configuração VSCode</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2 design patterns</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Padrões de Design</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#programa-estrutura-de-pastas">Programa - Estrutura de Pastas</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#programa-configuracao-de-estilos">Programa - Configuração de Estilos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#componentes-coesao">Componentes - Coesão</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#componentes-polimorfismo">Componentes - Polimorfismo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#componentes-lei-de-demeter">Componentes - Lei de Demeter</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#componentes-principios-solid">Componentes - Princípios SOLID</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#componentes-controllerview">Componentes - Controller/View</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#componentes-formularios">Componentes - Formulários</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hooks-react-query">Hooks - React-Query</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">code-rules</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>2 design patterns &raquo;</li>
+      <li>Padrões de Design</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="padroes-de-design">Padrões de Design</h1>
+<p>Os padrões descritos aqui não são os 23 Design Patterns tornados 'clássicos' pelo livro <a href="https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612">Design Patterns, Elements of Reusable Object Oriented Software</a>, cuja primeira edição data de 1994.<br>
+Caso tenha interesse, existe um site muito didático sobre eles <a href="https://refactoring.guru/design-patterns">aqui</a>.</p>
+<p>Neste capítulo, descrevemos padrões atualmente adotados no código BuildBox, organizados nas categorias a seguir.</p>
+<h6 id="programa-estrutura-de-pastas"><a href="">Programa - Estrutura de Pastas</a><br></h6>
+<h6 id="programa-configuracao-de-estilos"><a href="">Programa - Configuração de Estilos</a><br></h6>
+<h6 id="componentes-coesao"><a href="">Componentes - Coesão</a><br></h6>
+<h6 id="componentes-polimorfismo"><a href="">Componentes - Polimorfismo</a><br></h6>
+<h6 id="componentes-lei-de-demeter"><a href="">Componentes - Lei de Demeter</a><br></h6>
+<h6 id="componentes-principios-solid"><a href="">Componentes - Princípios SOLID</a><br></h6>
+<h6 id="componentes-controllerview"><a href="">Componentes - Controller/View</a><br></h6>
+<h6 id="componentes-formularios"><a href="">Componentes - Formulários</a><br></h6>
+<h6 id="hooks-react-query"><a href="">Hooks - React-Query</a><br></h6>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../1-Legibilidade/5-vscode-config/" class="btn btn-neutral float-left" title="1.5- Configuração VSCode"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../1-Legibilidade/5-vscode-config/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

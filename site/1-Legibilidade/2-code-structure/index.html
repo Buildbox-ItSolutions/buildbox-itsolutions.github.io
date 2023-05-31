@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>1.2- Estrutura do código - code-rules</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "1.2- Estrutura do c\u00f3digo";
+        var mkdocs_page_input_path = "1-Legibilidade\\2-code-structure.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> code-rules
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Padrões de Código</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1 Legibilidade</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../1-nomenclature/">1.1- Nomenclatura</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">1.2- Estrutura do código</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#121-evitar-comentarios">1.2.1- Evitar comentários</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#122-formatacao-horizontal">1.2.2- Formatação horizontal</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#123-formatacao-vertical">1.2.3- Formatação vertical</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../3-flow-control/">1.3- Controle do fluxo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../4-functions/">1.4- Funções e métodos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../5-vscode-config/">1.5- Configuração VSCode</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2 design patterns</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2-design-patterns/design-patterns/">Padrões de Design</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">code-rules</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>1 Legibilidade &raquo;</li>
+      <li>1.2- Estrutura do código</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="12-estrutura-do-codigo">1.2- Estrutura do código</h1>
+<p><br></p>
+<hr />
+<h3 id="121-evitar-comentarios">1.2.1- Evitar comentários</h3>
+<p>Os nomes dos componentes, funções, objetos, variáveis e argumentos devem ser autoexplicativos o suficiente, de modo a tornar os comentários desnecessários.<br></p>
+<p>Se os nomes forem autoexplicativos e o código estiver limpo e legível, a maioria dos comentários se tornarão dispensáveis e redudantes, e sua presença, além de dificultar a leitura do código, poderá levar a erros, no caso de modificações no código sem as correspondentes atualizações no comentário original.<br></p>
+<p>Entretanto, os seguintes tipos de comentário são necessários:<br>
+- Avisos de natureza jurídica<br>
+- Premissas ou pré-condições para executar uma função<br>
+- Explicações sobre algo implícito: por exemplo Regex<br>
+- TO DOs (Modificações futuras no código)<br></p>
+<p>Exemplos de comentários úteis:</p>
+<pre><code>function processPayment(cardNumber, expDate, cvv, amount) { 
+    /*
+        This function processes credit card payments
+        Legal: This code must comply with PCI DSS standards.
+        Preconditions: The transaction amount must be &gt; $0.
+        Limitations: This function only supports Visa and Mastercard payments. 
+    */
+
+    // Function code goes here ...    
+}
+
+function getUserData(userID) { 
+    /* 
+        This function retrieves user data from a database
+        Preconditions: The user must be authenticated and authorized. 
+        The user ID must be a valid string. 
+    */ 
+    // ... code to retrieve user data goes here ... 
+}
+
+// accepts [text]@[text].[text], i.e. it simply requires an "@" and a dot
+const emailRegex = /\S+@\S+\.\S+/;
+</code></pre>
+<p><br></p>
+<hr />
+<h3 id="122-formatacao-horizontal">1.2.2- Formatação horizontal</h3>
+<ul>
+<li>Máximo de 80 caracteres por linha<br></li>
+<li>Usar identação para expressar o escopo<br></li>
+<li>Não usar ponto e vírgula ao final das declarações, a menos que necessário...<br></li>
+<li>Usar aspas simples nas literais de strings e nomes de propriedades<br></li>
+<li>Para garantir as regras acima, <a href="../5-vscode-config/">usar esta configuração do VSCode para formatação horizontal</a><br>
+<br></li>
+</ul>
+<hr />
+<h3 id="123-formatacao-vertical">1.2.3- Formatação vertical</h3>
+<ul>
+<li>Mantenha conceitos relacionados próximos<br></li>
+<li>Use linhas em branco para separar conceitos não relacionados diretamente<br></li>
+<li>As funções chamadoras devem estar acima das chamadas, se possível<br></li>
+<li>Nos componentes, os grupos de funções devem vir na ordem abaixo:<br><blockquote>
+<ul>
+<li>states<br></li>
+<li>funções que tratam eventos da renderização ou são passadas para sub-componentes<br></li>
+<li>useEffects (dispô-los na ordem em que são chamados pela atualização dos states)<br></li>
+<li>funções que cooperam com a renderização<br></li>
+<li>return de renderização ou chamada da View do container<br>
+<br></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../1-nomenclature/" class="btn btn-neutral float-left" title="1.1- Nomenclatura"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../3-flow-control/" class="btn btn-neutral float-right" title="1.3- Controle do fluxo">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../1-nomenclature/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../3-flow-control/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
