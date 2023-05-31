@@ -1,4 +1,4 @@
-# 1.2- Estrutura do código
+# 1.2- Formatação do código
 <br>
 
 ***
