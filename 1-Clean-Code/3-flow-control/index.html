@@ -52,9 +52,15 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">1.3- Controle do fluxo</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#131-usar-testes-positivos">1.3.1- Usar testes positivos</a>
+    <li class="toctree-l2"><a class="reference internal" href="#131-preferir-condicionais-positivos">1.3.1- Preferir condicionais positivos</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#132-usar-o-minimo-aninhamento-possivel">1.3.2- Usar o mínimo aninhamento possível</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#usar-testes-de-protecao">Usar testes de 'Proteção'</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#refactorar-estruturas-de-controle-em-funcoes-separadas">Refactorar estruturas de controle em funções separadas</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#133-usar-try-e-catch-em-lugar-de-if">1.3.3- Usar try e catch em lugar de 'if'</a>
     </li>
@@ -97,27 +103,189 @@
                 <h1 id="13-controle-do-fluxo">1.3- Controle do fluxo</h1>
 <p><br></p>
 <hr />
-<blockquote>
-<h3 id="131-usar-testes-positivos">1.3.1- Usar testes positivos</h3>
-</blockquote>
+<h3 id="131-preferir-condicionais-positivos">1.3.1- Preferir condicionais positivos</h3>
+<p>Exemplo:<br></p>
+<pre><code>// Bad 😕 
+function isUserNotActive(node) {
+// ...
+}
+
+if (!isUserNotActive(node)) {
+// ...
+}
+
+// Good 😀
+function isUserActive(node) {
+// ...
+}
+
+if ( isUserActive(node) ) {
+// ...
+}
+</code></pre>
 <p><br></p>
 <hr />
-<blockquote>
 <h3 id="132-usar-o-minimo-aninhamento-possivel">1.3.2- Usar o mínimo aninhamento possível</h3>
-<ul>
-<li>Usar statements de 'Proteção', ou evitar o uso de <em>else</em><br></li>
-<li>Usar polimorfismo ou funções fábrica<br></li>
-<li>Refactorar estruturas de controle em funções separadas<br>
-<br></li>
-</ul>
-</blockquote>
+<p><br></p>
+<h4 id="usar-testes-de-protecao">Usar testes de 'Proteção'<br></h4>
+<p>Um teste de proteção é uma declaração 'if' que faz a função retornar, imediatamente, através de um 'return' ou via exceção.</p>
+<p>Exemplo:<br></p>
+<pre><code>// Bad 😕
+function getPromotionalPrice(promotionCode) {
+    let price
+    if (promotionCode===PROMOTION_CODE1) {
+        price = getPromotionCode1Price()
+    } else {
+        if (promotionCode===PROMOTION_CODE2) {
+            price = getPromotionCode2Price()
+        } else {
+            if (promotionCode===PROMOTION_STUDENT) {
+                price = getPromotionStudentPrice()
+            } else {
+                price = getDefaultPrice()
+            }
+        }
+    }
+    return price
+}
+
+// Better 😀
+function getPromotionalPrice(promotionCode) {
+    if (promotionCode===PROMOTION_CODE1)      return getPromotionCode1Price()
+    if (promotionCode===PROMOTION_CODE2)      return getPromotionCode2Price()
+    if (promotionCode===PROMOTION_STUDENT)    return getPromotionStudentPrice()
+    return getDefaultPrice()
+}
+</code></pre>
+<p><br></p>
+<h4 id="refactorar-estruturas-de-controle-em-funcoes-separadas">Refactorar estruturas de controle em funções separadas<br></h4>
+<p>Observe o código abaixo:<br></p>
+<pre><code>// Bad 😕
+
+function calculatePayment(age, isStudent, isMember) {
+    let payment = 0
+    if (age &lt; 18) {
+        if (isStudent) {
+            if (isMember) {
+                if (age &lt; 12) {
+                    payment = 5
+                } else {
+                    payment = 10
+                }
+            } else {
+                payment = 20
+            }
+        } else {
+            if (isMember) {
+                if (age &lt; 12) {
+                    payment = 7
+                } else {
+                    payment = 15
+                }
+            } else {
+                payment = 25
+            }
+        }
+    } else {
+        if (isMember) {
+            if (age &gt;= 18 &amp;&amp; age &lt; 65) {
+                if (isStudent) {
+                    payment = 3
+                } else {
+                    payment = 8
+                }
+            } else {
+                payment = 10
+            }
+        } else {
+            if (age &gt;= 18 &amp;&amp; age &lt; 65) {
+                if (isStudent) {
+                    payment = 5
+                } else {
+                    payment = 15
+                }
+            } else {
+                payment = 20
+            }
+        }
+    }
+
+    return payment
+}
+</code></pre>
+<p><br></p>
+<p>Além de ser uma função muito longa (50 linhas), chega a ter até 5 níveis de aninhamento, o que a torna difícil de ler e compreender.<br></p>
+<p>Note como a versão desse código, abaixo, onde várias estruturas de controle foram refatoradas em funções, se torna bem mais fácil de entender.<br></p>
+<pre><code>// Much better! 😀
+
+function calculatePayment(age, isStudent, isMember) {
+    if( isUnderage(age) )
+        return calculateUnderagePayment(isStudent, isMember, age)
+
+    if (isAdult(age))
+        return calculateAdultPayment(isStudent, isMember, age)
+
+    return calculateSeniorPayment()
+}
+
+function isUnderage(age) {
+    return age &lt; 18
+}
+
+function isAdult(age) {
+    return age &gt;= 18 &amp;&amp; age &lt; 65
+}
+
+function calculateUnderagePayment(isStudent, isMember, age) {
+    if (isStudent) {
+        return calculateUnderageStudentPayment(isMember, age)
+    } else {
+        return calculateUnderageNonStudentPayment(isMember, age)
+    }
+}
+
+function calculateUnderageStudentPayment(isMember, age) {
+    if (isMember) {
+        return age &lt; 12 ? 5 : 10
+    } else {
+        return 20
+    }
+}
+
+function calculateUnderageNonStudentPayment(isMember, age) {
+    if (isMember) {
+        return age &lt; 12 ? 7 : 15
+    } else {
+        return 25
+    }
+}
+
+function calculateAdultPayment(isStudent, isMember, age) {
+    if (isMember) {
+        return calculateAdultMemberPayment(isStudent, age)
+    } else {
+        return calculateAdultNonMemberPayment(isStudent, age)
+    }
+}
+
+function calculateAdultMemberPayment(isStudent, age) {
+    return isStudent ? 3 : 8
+}
+
+function calculateAdultNonMemberPayment(isStudent, age) {
+    return isStudent ? 5 : 15
+}
+
+function calculateSeniorPayment() {
+    return 20
+}
+</code></pre>
+<p>Embora o código final ainda tenha 51 linhas, fica fácil de entender o que cada função faz, porque cada grupo de condicionais foi encapsulado em uma função pequena e com um apenas 1 nível de aninhamento.<br></p>
 <hr />
-<blockquote>
 <h3 id="133-usar-try-e-catch-em-lugar-de-if">1.3.3- Usar try e catch em lugar de 'if'</h3>
 <ul>
 <li>Quando aplicável, usar tratamento de erros (try catch) em lugar de 'ifs'</li>
 </ul>
-</blockquote>
               
             </div>
           </div><footer>
