@@ -99,8 +99,8 @@
 <hr />
 <h3 id="121-evitar-comentarios">1.2.1- Evitar comentários</h3>
 <p>Os nomes dos componentes, funções, objetos, variáveis e argumentos devem ser autoexplicativos o suficiente, de modo a tornar os comentários desnecessários.<br></p>
-<p>Se os nomes forem autoexplicativos e o código estiver limpo e legível, a maioria dos comentários se tornarão dispensáveis e redudantes, e sua presença, além de dificultar a leitura do código, poderá levar a erros, no caso de modificações no código sem as correspondentes atualizações no comentário original.<br></p>
-<p>Entretanto, os seguintes tipos de comentário são necessários:<br>
+<p>Se os nomes forem autoexplicativos e o código estiver limpo e legível, a maioria dos comentários se tornarão dispensáveis e redudantes, e sua presença, além de dificultar a leitura do código, poderá levar a erros, ao ocorrerem modificações no código, sem a correspondente atualização do comentário original.<br></p>
+<p>Entretanto, os seguintes tipos de comentário são úteis e, às vezes, necessários:<br>
 - Avisos de natureza jurídica<br>
 - Premissas ou pré-condições para executar uma função<br>
 - Explicações sobre algo implícito: por exemplo Regex<br>
@@ -143,10 +143,10 @@ const emailRegex = /\S+@\S+\.\S+/;
 <hr />
 <h3 id="123-formatacao-vertical">1.2.3- Formatação vertical</h3>
 <ul>
-<li>Mantenha conceitos relacionados próximos<br></li>
-<li>Use linhas em branco para separar conceitos não relacionados diretamente<br></li>
-<li>As funções chamadoras devem estar acima das chamadas, se possível<br></li>
-<li>Nos componentes, os grupos de funções devem vir na ordem abaixo:<br><blockquote>
+<li>As funções chamadoras devem estar acima das funções chamadas, sempre que possível.<br></li>
+<li>Mantenha conceitos relacionados próximos, ou seja, idealmente, mantenha as funções chamadas imediatamente abaixo de suas funções chamadoras.<br></li>
+<li>Use linhas em branco para separar conceitos não relacionados diretamente.<br></li>
+<li>Nos componentes React, os grupos de elementos devem vir na ordem abaixo:<br><blockquote>
 <ul>
 <li>states<br></li>
 <li>funções que tratam eventos da renderização ou são passadas para sub-componentes<br></li>

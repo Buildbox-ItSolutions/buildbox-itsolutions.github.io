@@ -112,11 +112,28 @@
 <h3 id="111-usar-as-seguintes-notacoes-de-caixa">1.1.1- Usar as seguintes notações de caixa</h3>
 <ul>
 <li>Nomes de variáveis, propriedades, funções, argumentos de funções: Usar <strong>camelCase</strong><br></li>
-<li>Nomes de Componentes React, classes: Usar <strong>PascalCase</strong><br>
+<li>Nomes de Componentes React: Usar <strong>PascalCase</strong><br>
 <br></li>
 </ul>
 <hr />
 <h3 id="112-usar-nomes-descritivos-e-com-significado">1.1.2- Usar nomes descritivos e com significado</h3>
+<p><br>
+Usar nomes que descrevem claramente e de forma distinta o conteúdo da variável, sem usar abreviações que obrigariam o leitor a procurar o significado; explícito é melhor do que implícito.<br></p>
+<p>Por exemplo:<br></p>
+<pre><code>// Bad 😕 
+locations.forEach(l =&gt; {
+    // Several lines of code, here
+    // ...
+    dispatch(l)  // Trying to remenber what `l` means...
+})
+
+// Good 😀
+locations.forEach(location =&gt; {
+    // Several lines of code, here
+    // ...
+    dispatch(location)  // No waste of time to remember
+})
+</code></pre>
 <p><br></p>
 <h4 id="variaveis-propriedades-e-argumentos-de-funcoes">Variáveis, propriedades e argumentos de funções<br></h4>
 <p>Usar substantivos, simples ou compostos<br></p>
@@ -215,11 +232,20 @@ function ListProducts(...) {...}        // 'List' é um verbo aqui
 <br></p>
 <hr />
 <h3 id="114-ser-consistente-no-escopo-do-projeto">1.1.4- Ser consistente no escopo do projeto</h3>
-<p>Deve-se procurar usar os mesmos nomes e verbos para os mesmos tipos de conteúdo e/ou ações, dentro do projeto corrente e, se possível, entre todos os projetos da BuildBox.<br>
-<br></p>
+<p>Deve-se procurar usar os mesmos nomes e verbos para os mesmos tipos de conteúdo e/ou ações, dentro do projeto corrente e, se possível, entre todos os projetos da BuildBox.<br></p>
+<p>Por exemplo:<br></p>
+<pre><code>// Bad 😕 
+getUserInfo()
+getClientData()
+getCustomerRecord()
+
+// Good 😀
+getClient()
+</code></pre>
+<p><br></p>
 <hr />
 <h3 id="115-usar-aspas-simples">1.1.5- Usar aspas simples</h3>
-<p>Usar aspas simples nos literais de strings e nomes de propriedades<br>
+<p>Usar aspas simples ('') nos literais de strings e nomes de propriedades, ao invés de aspas duplas ("").<br>
 <br></p>
               
             </div>

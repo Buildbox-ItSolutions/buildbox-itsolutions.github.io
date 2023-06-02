@@ -54,13 +54,15 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">1.4- Funções e métodos</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#limitar-o-numero-de-parametros">Limitar o número de parâmetros</a>
+    <li class="toctree-l2"><a class="reference internal" href="#usar-o-dry-dont-repeat-yourselt">Usar o DRY (Don't Repeat Yourselt)  </a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preferir-a-programacao-funcional">Preferir a programação funcional</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#limitar-o-numero-de-argumentos">Limitar o número de argumentos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usar-argumentos-default">Usar argumentos default</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#as-funcoes-devem-ser-pequenas-e-fazer-apenas-uma-coisa-single-responsability-principle">As funções devem ser pequenas e fazer apenas uma coisa (Single Responsability Principle)</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#usar-o-dry">Usar o DRY</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#evitar-efeitos-colaterais">Evitar efeitos colaterais</a>
     </li>
     </ul>
                   </li>
@@ -97,11 +99,23 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="14-funcoes-e-metodos">1.4- Funções e métodos</h1>
-<blockquote>
-<h3 id="limitar-o-numero-de-parametros">Limitar o número de parâmetros</h3>
+<h3 id="usar-o-dry-dont-repeat-yourselt">Usar o DRY (<strong>D</strong>on't <strong>R</strong>epeat <strong>Y</strong>ourselt)  <br></h3>
+<ul>
+<li>Código repetido deve ser codificado em uma ou várias funções.<br></li>
+</ul>
+<h3 id="preferir-a-programacao-funcional">Preferir a programação funcional<br></h3>
+<ul>
+<li>Ou seja, evitar trabalhar com parâmetros de listas ou objetos, copiando-os sempre antes de manipulá-los.<br></li>
+</ul>
+<h3 id="limitar-o-numero-de-argumentos">Limitar o número de argumentos<br></h3>
 <ul>
 <li>Quanto menos, melhor.<br></li>
 <li>Usar objetos ou arrays para agrupar múltiplos parâmetros em um único.<br></li>
+<li>Não usar argumentos como flags.<br></li>
+</ul>
+<h3 id="usar-argumentos-default">Usar argumentos default<br></h3>
+<ul>
+<li>Usar argumentos default reduz o número de condicionais dentro da função.<br></li>
 </ul>
 <h3 id="as-funcoes-devem-ser-pequenas-e-fazer-apenas-uma-coisa-single-responsability-principle">As funções devem ser pequenas e fazer apenas uma coisa (Single Responsability Principle)<br></h3>
 <ul>
@@ -109,15 +123,6 @@
 <li>Evitar misturar níveis de abstração dentro de funções. Qualquer coisa a mais deve ser codificada dentro de outra função que será chamada pela primeira.<br></li>
 <li>Porém, evitar refatoramento redundante.<br></li>
 </ul>
-<h3 id="usar-o-dry">Usar o DRY</h3>
-<ul>
-<li>Código repetido deve ser codificado em uma ou várias funções.<br></li>
-</ul>
-<h3 id="evitar-efeitos-colaterais">Evitar efeitos colaterais</h3>
-<ul>
-<li>Ou seja, evitar trabalhar com parâmetros de listas ou objetos, copiando-os sempre antes de manipulá-los.</li>
-</ul>
-</blockquote>
               
             </div>
           </div><footer>
