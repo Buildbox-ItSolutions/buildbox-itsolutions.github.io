@@ -5,12 +5,31 @@
 
 ### 1.1.1- Usar as seguintes notações de caixa
 - Nomes de variáveis, propriedades, funções, argumentos de funções: Usar **camelCase**<br>
-- Nomes de Componentes React, classes: Usar **PascalCase**<br>
+- Nomes de Componentes React: Usar **PascalCase**<br>
 <br>
 
 ***
 
 ### 1.1.2- Usar nomes descritivos e com significado
+<br>
+Usar nomes que descrevem claramente e de forma distinta o conteúdo da variável, sem usar abreviações que obrigariam o leitor a procurar o significado; explícito é melhor do que implícito.<br>
+
+Por exemplo:<br>
+
+    // Bad 😕 
+    locations.forEach(l => {
+        // Several lines of code, here
+        // ...
+        dispatch(l)  // Trying to remenber what `l` means...
+    })
+
+    // Good 😀
+    locations.forEach(location => {
+        // Several lines of code, here
+        // ...
+        dispatch(location)  // No waste of time to remember
+    })
+
 <br>
 
 #### Variáveis, propriedades e argumentos de funções<br> 
@@ -122,11 +141,22 @@ De modo geral, quanto mais amplo o escopo, mais específico deve ser o nome, par
 
 ### 1.1.4- Ser consistente no escopo do projeto
 Deve-se procurar usar os mesmos nomes e verbos para os mesmos tipos de conteúdo e/ou ações, dentro do projeto corrente e, se possível, entre todos os projetos da BuildBox.<br>
+
+Por exemplo:<br>
+
+    // Bad 😕 
+    getUserInfo()
+    getClientData()
+    getCustomerRecord()
+
+    // Good 😀
+    getClient()
+
 <br>
 
 ***
 
 ### 1.1.5- Usar aspas simples
-Usar aspas simples nos literais de strings e nomes de propriedades<br>
+Usar aspas simples ('') nos literais de strings e nomes de propriedades, ao invés de aspas duplas ("").<br>
 <br>
  
