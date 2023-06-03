@@ -41,7 +41,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../..">Padrões de Código</a>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Padrões de Código<br></a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">1 Clean Code</span></p>
@@ -52,17 +52,19 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">1.3- Controle do fluxo</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#131-preferir-condicionais-positivos">1.3.1- Preferir condicionais positivos</a>
+    <li class="toctree-l2"><a class="reference internal" href="#131-preferir-clausulas-condicionais-afirmativas-ao-inves-de-negativas">1.3.1- Preferir cláusulas condicionais afirmativas, ao invés de negativas</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#132-usar-o-minimo-aninhamento-possivel">1.3.2- Usar o mínimo aninhamento possível</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#usar-testes-de-protecao">Usar testes de 'Proteção'</a>
+    <li class="toctree-l3"><a class="reference internal" href="#usar-clausulas-condicionais-de-protecao">Usar cláusulas condicionais de 'Proteção'</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#refactorar-estruturas-de-controle-em-funcoes-separadas">Refactorar estruturas de controle em funções separadas</a>
+    <li class="toctree-l3"><a class="reference internal" href="#refatorar-estruturas-de-controle-em-funcoes-separadas">Refatorar estruturas de controle em funções separadas</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#133-usar-try-e-catch-em-lugar-de-if">1.3.3- Usar try e catch em lugar de 'if'</a>
+    <li class="toctree-l2"><a class="reference internal" href="#133-substituir-declaracoes-switchif-por-literais-de-objetos">1.3.3- Substituir declarações switch/if por literais de objetos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#134-usar-exceptions-para-tratar-erros">1.3.4- Usar Exceptions para tratar erros</a>
     </li>
     </ul>
                   </li>
@@ -103,7 +105,7 @@
                 <h1 id="13-controle-do-fluxo">1.3- Controle do fluxo</h1>
 <p><br></p>
 <hr />
-<h3 id="131-preferir-condicionais-positivos">1.3.1- Preferir condicionais positivos</h3>
+<h3 id="131-preferir-clausulas-condicionais-afirmativas-ao-inves-de-negativas">1.3.1- Preferir cláusulas condicionais afirmativas, ao invés de negativas</h3>
 <p>Exemplo:<br></p>
 <pre><code>// Bad 😕 
 function isUserNotActive(node) {
@@ -127,8 +129,8 @@ if ( isUserActive(node) ) {
 <hr />
 <h3 id="132-usar-o-minimo-aninhamento-possivel">1.3.2- Usar o mínimo aninhamento possível</h3>
 <p><br></p>
-<h4 id="usar-testes-de-protecao">Usar testes de 'Proteção'<br></h4>
-<p>Um teste de proteção é uma declaração 'if' que faz a função retornar, imediatamente, através de um 'return' ou via exceção.</p>
+<h4 id="usar-clausulas-condicionais-de-protecao">Usar cláusulas condicionais de 'Proteção'<br></h4>
+<p>Uma cláusula condicional de proteção é uma declaração 'if' que faz a função retornar, imediatamente, através de um 'return' ou de uma exceção (Error).</p>
 <p>Exemplo:<br></p>
 <pre><code>// Bad 😕
 function getPromotionalPrice(promotionCode) {
@@ -158,7 +160,7 @@ function getPromotionalPrice(promotionCode) {
 }
 </code></pre>
 <p><br></p>
-<h4 id="refactorar-estruturas-de-controle-em-funcoes-separadas">Refactorar estruturas de controle em funções separadas<br></h4>
+<h4 id="refatorar-estruturas-de-controle-em-funcoes-separadas">Refatorar estruturas de controle em funções separadas<br></h4>
 <p>Observe o código abaixo:<br></p>
 <pre><code>// Bad 😕
 
@@ -282,10 +284,37 @@ function calculateSeniorPayment() {
 </code></pre>
 <p>Embora o código final ainda tenha 51 linhas, fica fácil de entender o que cada função faz, porque cada grupo de condicionais foi encapsulado em uma função pequena e com um apenas 1 nível de aninhamento.<br></p>
 <hr />
-<h3 id="133-usar-try-e-catch-em-lugar-de-if">1.3.3- Usar try e catch em lugar de 'if'</h3>
-<ul>
-<li>Quando aplicável, usar tratamento de erros (try catch) em lugar de 'ifs'</li>
-</ul>
+<h3 id="133-substituir-declaracoes-switchif-por-literais-de-objetos">1.3.3- Substituir declarações switch/if por literais de objetos<br></h3>
+<pre><code>// Bad 😕
+const getServerUrl = (env) =&gt; {
+    switch (env) {
+        case "prod":
+            return "prod.myweb.com"
+        case "test":
+            return "test.myweb.com"
+        case "staging":
+            return "staging.myweb.com"
+        default:
+            return "https://localhost:3000"
+    }
+}
+
+// Better 😀
+const serverUrls = {
+    prod: "prod.myweb.com",
+    test: "test.myweb.com",
+    staging: "staging.myweb.com"
+}
+
+const getServerUrl = (env) =&gt; serverUrls[env] || "https://localhost:3000"
+</code></pre>
+<p><br></p>
+<hr />
+<h3 id="134-usar-exceptions-para-tratar-erros">1.3.4- Usar Exceptions para tratar erros</h3>
+<p>Todos os tipos de erro que impeçam o fluxo do programa de continuar ou de produzir resultados corretos, devem ser previstos e tratados por meio de excessões (<strong>try  catch</strong>).<br></p>
+<p>A idéia básica é validar todas as variáveis que serão utilizadas em determinado processamento e subir uma excessão, caso alguma delas tenha um valor inválido, antes da execução do processamento em questão.</p>
+<p>A seção <a href="">Design Patterns / Tratamento de erros</a> detalha a forma padrão como isso deve ser feito no código da BuildBox.<br>
+<br></p>
               
             </div>
           </div><footer>
