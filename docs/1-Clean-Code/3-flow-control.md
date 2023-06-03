@@ -3,7 +3,7 @@
 
 ***
 
-### 1.3.1- Preferir condicionais positivos
+### 1.3.1- Preferir cláusulas condicionais afirmativas, ao invés de negativas
 
 Exemplo:<br>
 
@@ -32,8 +32,8 @@ Exemplo:<br>
 ### 1.3.2- Usar o mínimo aninhamento possível
 <br>
 
-#### Usar testes de 'Proteção'<br>
-Um teste de proteção é uma declaração 'if' que faz a função retornar, imediatamente, através de um 'return' ou via exceção.
+#### Usar cláusulas condicionais de 'Proteção'<br>
+Uma cláusula condicional de proteção é uma declaração 'if' que faz a função retornar, imediatamente, através de um 'return' ou de uma exceção (Error).
 
 Exemplo:<br>
 
@@ -65,7 +65,7 @@ Exemplo:<br>
     }
 <br>
 
-#### Refactorar estruturas de controle em funções separadas<br>
+#### Refatorar estruturas de controle em funções separadas<br>
 
 Observe o código abaixo:<br>
 
@@ -196,5 +196,39 @@ Embora o código final ainda tenha 51 linhas, fica fácil de entender o que cada
 
 ***
 
-### 1.3.3- Usar try e catch em lugar de 'if' 
-- Quando aplicável, usar tratamento de erros (try catch) em lugar de 'ifs'
+### 1.3.3- Substituir declarações switch/if por literais de objetos<br>
+
+    // Bad 😕
+    const getServerUrl = (env) => {
+        switch (env) {
+            case "prod":
+                return "prod.myweb.com"
+            case "test":
+                return "test.myweb.com"
+            case "staging":
+                return "staging.myweb.com"
+            default:
+                return "https://localhost:3000"
+        }
+    }
+
+    // Better 😀
+    const serverUrls = {
+        prod: "prod.myweb.com",
+        test: "test.myweb.com",
+        staging: "staging.myweb.com"
+    }
+
+    const getServerUrl = (env) => serverUrls[env] || "https://localhost:3000"
+<br>
+
+***
+
+### 1.3.4- Usar Exceptions para tratar erros 
+Todos os tipos de erro que impeçam o fluxo do programa de continuar ou de produzir resultados corretos, devem ser previstos e tratados por meio de excessões (**try  catch**).<br>
+
+A idéia básica é validar todas as variáveis que serão utilizadas em determinado processamento e subir uma excessão, caso alguma delas tenha um valor inválido, antes da execução do processamento em questão.
+
+A seção [Design Patterns / Tratamento de erros]() detalha a forma padrão como isso deve ser feito no código da BuildBox.<br>
+<br>
+

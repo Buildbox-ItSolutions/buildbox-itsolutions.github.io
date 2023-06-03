@@ -5,14 +5,17 @@ Caso tenha interesse, existe um site muito didático sobre eles [aqui](https://r
 
 Neste capítulo, descrevemos padrões atualmente adotados no código BuildBox, organizados nas categorias a seguir.
 
-###### [Programa - Estrutura de Pastas]()<br>
-###### [Programa - Configuração de Estilos]()<br>
-###### [Componentes - Coesão]()<br>
-###### [Componentes - Polimorfismo]()<br>
-###### [Componentes - Lei de Demeter]()<br>
-###### [Componentes - Princípios SOLID]()<br>
-###### [Componentes - Controller/View]()<br>
-###### [Componentes - Formulários]()<br>
-###### [Hooks - React-Query]()<br>
+###### [2.1- Programa - Estrutura de pastas do projeto]()<br>
+###### [2.2- Programa - Configuração de estilos]()<br>
+###### [2.3- Programa - Roteamento de páginas]()<br>
+###### [2.4- Programa - Menu(s) de navegação]()<br>
+###### [2.5- Programa - Tratamento de erros]()<br>
+###### [2.6- Programa - Autenticação]()<br>
+###### [2.7- Acesso a APIs]()<br>
+###### [2.8- Componentes - Coesão e Reuso]()<br>
+###### [2.9- Componentes - Princípios SOLID]()<br>
+###### [2.10- Componentes - Controller/View]()<br>
+###### [2.11- Componentes - Formulários]()<br>
+###### [2.12- Hooks - React-Query]()<br>
 
 ***
