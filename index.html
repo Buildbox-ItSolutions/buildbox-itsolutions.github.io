@@ -12,7 +12,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Padr\u00f5es de C\u00f3digo";
+        var mkdocs_page_name = "Padr\u00f5es de C\u00f3digo\u003cbr\u003e";
         var mkdocs_page_input_path = "index.md";
         var mkdocs_page_url = null;
       </script>
@@ -41,8 +41,12 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href=".">Padrões de Código</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href=".">Padrões de Código<br></a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#objetivo-deste-guia">Objetivo deste Guia</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#indice-de-conteudo">Índice de Conteúdo</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -78,7 +82,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-      <li>Padrões de Código</li>
+      <li>Padrões de Código<br></li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -87,8 +91,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="padroes-de-codigo">Padrões de Código</h1>
-<p>Este livro apresenta as regras e padrões de codificação a serem seguidos pelas equipes BuildBox,<br>
+                <h1 id="padroes-de-codigo">Padrões de Código<br></h1>
+<p><br></p>
+<hr />
+<h2 id="objetivo-deste-guia">Objetivo deste Guia<br></h2>
+<p>Este guia apresenta as regras e padrões de codificação a serem seguidos pelas equipes BuildBox,<br>
 que desenvolvem software usando as seguintes tecnologias:</p>
 <ul>
 <li>React.js</li>
@@ -103,10 +110,92 @@ que desenvolvem software usando as seguintes tecnologias:</p>
 <li>Facilitar o desenvolvimento inicial e manutenção de código, reduzindo o tempo e custos</li>
 <li>Garantir o uso de boas práticas de forma a melhorar a qualidade</li>
 </ul>
-<p>Os padrões estão organizados em 2 áreas, conforme abaixo</p>
+<p>Os padrões estão organizados em 2 áreas <strong>Clean Code</strong> e <strong>Design Patterns</strong>, conforme o índice abaixo.<br>
+<br></p>
+<hr />
+<h2 id="indice-de-conteudo">Índice de Conteúdo<br></h2>
 <ul>
-<li><a href="1-Clean-Code/1-nomenclature/">Legibilidade (Clean Code)</a> - Tornan o código autoexplicativo e fácil de entender</li>
-<li><a href="2-Design-Patterns/design-patterns/">Padrões de Design</a> - Possibilitam a atualização e evolução do código</li>
+<li>
+<p><a href="1-Clean-Code/1-nomenclature/">1- Clean Code (Legibilidade)</a> - Tornam o código autoexplicativo e fácil de entender</p>
+<ul>
+<li>
+<p><a href="1-Clean-Code/1-nomenclature/">1.1- Nomenclatura</a></p>
+<ul>
+<li><a href="1-Clean-Code/1-nomenclature.md/111">1.1.1- Usar as seguintes notações de caixa</a></li>
+<li>
+<p><a href="">1.1.2- Usar nomes descritivos e com significado</a></p>
+<ul>
+<li><a href="">Variáveis, propriedades e argumentos de funções</a></li>
+<li><a href="">Funções e métodos</a></li>
+<li><a href="">Componentes</a></li>
+</ul>
+</li>
+<li>
+<p><a href="">1.1.3- Usar nomes específicos, evitando nomes ambíguos no escopo</a></p>
+</li>
+<li><a href="">1.1.4- Ser consistente no escopo do projeto</a></li>
+<li><a href="">1.1.5- Usar aspas simples</a></li>
+</ul>
+</li>
+<li>
+<p><a href="">1.2- Formatação do código</a></p>
+<ul>
+<li><a href="">1.2.1- Evitar comentários</a></li>
+<li><a href="">1.2.2- Formatação horizontal</a></li>
+<li><a href="">1.2.3- Formatação vertical</a></li>
+</ul>
+</li>
+<li>
+<p><a href="">1.3- Controle do fluxo</a></p>
+<ul>
+<li><a href="">1.3.1- Preferir cláusulas condicionais afirmativas, ao invés de negativas</a></li>
+<li>
+<p><a href="">1.3.2- Usar o mínimo aninhamento possível</a></p>
+<ul>
+<li><a href="">Usar cláusulas condicionais de 'Proteção'</a></li>
+<li><a href="">Refatorar estruturas de controle em funções separadas</a></li>
+</ul>
+</li>
+<li>
+<p><a href="">1.3.3- Substituir declarações switch/if por literais de objetos</a></p>
+</li>
+<li><a href="">1.3.4- Usar Exceptions para tratar erros </a></li>
+</ul>
+</li>
+<li>
+<p><a href="">1.4- Funções e métodos</a></p>
+<ul>
+<li><a href="">1.4.1- DRY (<strong>D</strong>on't <strong>R</strong>epeat <strong>Y</strong>ourselt)</a></li>
+<li><a href="">1.4.2- As funções devem fazer apenas uma coisa (Single Responsability Principle)</a></li>
+<li><a href="">1.4.3- Limitar o número de argumentos das funções</a></li>
+<li><a href="">1.4.4- Usar parâmetros default</a></li>
+<li><a href="">1.4.5- Evitar efeitos colaterais das funções</a></li>
+</ul>
+</li>
+<li>
+<p><a href="">1.5- Configuração VSCode</a>
+<br>
+<br></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="2-Design-Patterns/design-patterns/">2- Design Patterns (Padrões de Design)</a> - Além de tornarem o código mais fácil de entender, possibilitam a atualização e evolução do código</p>
+<ul>
+<li><a href="">2.1- Programa - Estrutura de pastas do projeto</a></li>
+<li><a href="">2.2- Programa - Configuração de estilos</a></li>
+<li><a href="">2.3- Programa - Roteamento de páginas</a></li>
+<li><a href="">2.4- Programa - Menu(s) de navegação</a></li>
+<li><a href="">2.5- Programa - Tratamento de erros</a></li>
+<li><a href="">2.6- Programa - Autenticação</a></li>
+<li><a href="">2.7- Acesso a APIs</a></li>
+<li><a href="">2.8- Componentes - Coesão e Reuso</a></li>
+<li><a href="">2.9- Componentes - Princípios SOLID</a></li>
+<li><a href="">2.10- Componentes - Controller/View</a></li>
+<li><a href="">2.11- Componentes - Formulários</a></li>
+<li><a href="">2.12- Hooks - React-Query</a></li>
+</ul>
+</li>
 </ul>
               
             </div>
@@ -155,5 +244,5 @@ que desenvolvem software usando as seguintes tecnologias:</p>
 
 <!--
 MkDocs version : 1.4.2
-Build Date UTC : 2023-06-02 16:22:09.980905+00:00
+Build Date UTC : 2023-06-03 23:37:01.972799+00:00
 -->

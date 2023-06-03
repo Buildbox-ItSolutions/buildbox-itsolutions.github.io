@@ -41,7 +41,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../..">Padrões de Código</a>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Padrões de Código<br></a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">1 Clean Code</span></p>
@@ -61,23 +61,29 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Padrões de Design</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#programa-estrutura-de-pastas">Programa - Estrutura de Pastas</a>
+    <li class="toctree-l2"><a class="reference internal" href="#21-programa-estrutura-de-pastas-do-projeto">2.1- Programa - Estrutura de pastas do projeto</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#programa-configuracao-de-estilos">Programa - Configuração de Estilos</a>
+    <li class="toctree-l2"><a class="reference internal" href="#22-programa-configuracao-de-estilos">2.2- Programa - Configuração de estilos</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#componentes-coesao">Componentes - Coesão</a>
+    <li class="toctree-l2"><a class="reference internal" href="#23-programa-roteamento-de-paginas">2.3- Programa - Roteamento de páginas</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#componentes-polimorfismo">Componentes - Polimorfismo</a>
+    <li class="toctree-l2"><a class="reference internal" href="#24-programa-menus-de-navegacao">2.4- Programa - Menu(s) de navegação</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#componentes-lei-de-demeter">Componentes - Lei de Demeter</a>
+    <li class="toctree-l2"><a class="reference internal" href="#25-programa-tratamento-de-erros">2.5- Programa - Tratamento de erros</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#componentes-principios-solid">Componentes - Princípios SOLID</a>
+    <li class="toctree-l2"><a class="reference internal" href="#26-programa-autenticacao">2.6- Programa - Autenticação</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#componentes-controllerview">Componentes - Controller/View</a>
+    <li class="toctree-l2"><a class="reference internal" href="#27-acesso-a-apis">2.7- Acesso a APIs</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#componentes-formularios">Componentes - Formulários</a>
+    <li class="toctree-l2"><a class="reference internal" href="#28-componentes-coesao-e-reuso">2.8- Componentes - Coesão e Reuso</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#hooks-react-query">Hooks - React-Query</a>
+    <li class="toctree-l2"><a class="reference internal" href="#29-componentes-principios-solid">2.9- Componentes - Princípios SOLID</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#210-componentes-controllerview">2.10- Componentes - Controller/View</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#211-componentes-formularios">2.11- Componentes - Formulários</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#212-hooks-react-query">2.12- Hooks - React-Query</a>
     </li>
     </ul>
                   </li>
@@ -110,15 +116,18 @@
 <p>Os padrões descritos aqui não são os 23 Design Patterns tornados 'clássicos' pelo livro <a href="https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612">Design Patterns, Elements of Reusable Object Oriented Software</a>, cuja primeira edição data de 1994.<br>
 Caso tenha interesse, existe um site muito didático sobre eles <a href="https://refactoring.guru/design-patterns">aqui</a>.</p>
 <p>Neste capítulo, descrevemos padrões atualmente adotados no código BuildBox, organizados nas categorias a seguir.</p>
-<h6 id="programa-estrutura-de-pastas"><a href="">Programa - Estrutura de Pastas</a><br></h6>
-<h6 id="programa-configuracao-de-estilos"><a href="">Programa - Configuração de Estilos</a><br></h6>
-<h6 id="componentes-coesao"><a href="">Componentes - Coesão</a><br></h6>
-<h6 id="componentes-polimorfismo"><a href="">Componentes - Polimorfismo</a><br></h6>
-<h6 id="componentes-lei-de-demeter"><a href="">Componentes - Lei de Demeter</a><br></h6>
-<h6 id="componentes-principios-solid"><a href="">Componentes - Princípios SOLID</a><br></h6>
-<h6 id="componentes-controllerview"><a href="">Componentes - Controller/View</a><br></h6>
-<h6 id="componentes-formularios"><a href="">Componentes - Formulários</a><br></h6>
-<h6 id="hooks-react-query"><a href="">Hooks - React-Query</a><br></h6>
+<h6 id="21-programa-estrutura-de-pastas-do-projeto"><a href="">2.1- Programa - Estrutura de pastas do projeto</a><br></h6>
+<h6 id="22-programa-configuracao-de-estilos"><a href="">2.2- Programa - Configuração de estilos</a><br></h6>
+<h6 id="23-programa-roteamento-de-paginas"><a href="">2.3- Programa - Roteamento de páginas</a><br></h6>
+<h6 id="24-programa-menus-de-navegacao"><a href="">2.4- Programa - Menu(s) de navegação</a><br></h6>
+<h6 id="25-programa-tratamento-de-erros"><a href="">2.5- Programa - Tratamento de erros</a><br></h6>
+<h6 id="26-programa-autenticacao"><a href="">2.6- Programa - Autenticação</a><br></h6>
+<h6 id="27-acesso-a-apis"><a href="">2.7- Acesso a APIs</a><br></h6>
+<h6 id="28-componentes-coesao-e-reuso"><a href="">2.8- Componentes - Coesão e Reuso</a><br></h6>
+<h6 id="29-componentes-principios-solid"><a href="">2.9- Componentes - Princípios SOLID</a><br></h6>
+<h6 id="210-componentes-controllerview"><a href="">2.10- Componentes - Controller/View</a><br></h6>
+<h6 id="211-componentes-formularios"><a href="">2.11- Componentes - Formulários</a><br></h6>
+<h6 id="212-hooks-react-query"><a href="">2.12- Hooks - React-Query</a><br></h6>
 <hr />
               
             </div>
