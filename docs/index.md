@@ -4,8 +4,7 @@
 ***
 
 ## Objetivo deste Guia<br>
-Este guia apresenta as regras e padrões de codificação a serem seguidos pelas equipes BuildBox,<br>
-que desenvolvem software usando as seguintes tecnologias:
+Este guia apresenta as regras e padrões de codificação a serem seguidos pelas equipes da [**BuildBox**](https://buildbox.com.br/), que desenvolvem software usando as seguintes tecnologias:<br>
 
 * React.js
 * React-Native
@@ -19,13 +18,22 @@ Estes padrões têm dois objetivos principais:
 * Facilitar o desenvolvimento inicial e manutenção de código, reduzindo o tempo e custos
 * Garantir o uso de boas práticas de forma a melhorar a qualidade
 
-Os padrões estão organizados em 2 áreas **Clean Code** e **Design Patterns**, conforme o índice abaixo.<br>
+Os padrões estão organizados em 2 grandes seções, **Clean Code** e **Design Patterns**, conforme apresentado no índice, abaixo.<br>
+
+A seção **Clean Code** trata de padrões que tornam o código mais legível, autoexplicativo e, assim, fácil de entender e de manter.<br>
+
+Na seção **Design Patterns** são apresentados os principais padrões de código usados na **BuildBox** (equipe JS) que representam decisões de arquitetura que visam aumentar, além da clareza do código, também a reusabilidade e facilidade de evolução dos sistemas.
+
 <br>
 
 ***
 
 ## Índice de Conteúdo<br>
-* [1- Clean Code (Legibilidade)](1-Clean-Code/1-nomenclature.md) - Tornam o código autoexplicativo e fácil de entender
+<br>
+
+***
+
+* [1- Clean Code (Legibilidade)](1-Clean-Code/1-nomenclature.md)
     * [1.1- Nomenclatura](1-Clean-Code/1-nomenclature.md)
         * [1.1.1- Usar as seguintes notações de caixa](1-Clean-Code/1-nomenclature.md)
         * [1.1.2- Usar nomes descritivos e com significado](1-Clean-Code/1-nomenclature.md)
@@ -62,7 +70,9 @@ Os padrões estão organizados em 2 áreas **Clean Code** e **Design Patterns**,
 <br>
 <br>
 
-* [2- Design Patterns (Padrões de Design)](2-Design-Patterns/design-patterns.md) - Além de tornarem o código mais fácil de entender, possibilitam a atualização e evolução do código
+***
+
+* [2- Design Patterns (Padrões de Design)](2-Design-Patterns/design-patterns.md)
     * [2.1- Programa - Estrutura de pastas do projeto]()
     * [2.2- Programa - Configuração de estilos]()
     * [2.3- Programa - Roteamento de páginas]()
@@ -75,3 +85,16 @@ Os padrões estão organizados em 2 áreas **Clean Code** e **Design Patterns**,
     * [2.10- Componentes - Controller/View]()
     * [2.11- Componentes - Formulários]()
     * [2.12- Hooks - React-Query]()
+
+<br>
+
+***
+
+## Histórico de Revisões<br>
+<br>
+
+| Versão    | Data         | Descrição                                                |
+| :-------: | :----------: | :------------------------------------------------------- |
+| 01-D01    | 05-Jun-2023  | Rascunho para primeira revisão técnica                   |
+| -         | -            | -                                                        |
+
