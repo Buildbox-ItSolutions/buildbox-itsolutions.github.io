@@ -78,14 +78,15 @@ Na seção **Design Patterns** são apresentados os principais padrões de códi
     * [2.3- Programa - Roteamento de páginas]()
     * [2.4- Programa - Menu(s) de navegação]()
     * [2.5- Programa - Tratamento de erros]()
-    * [2.6- Programa - Autenticação]()
-    * [2.7- Acesso a APIs]()
-    * [2.8- Componentes - Coesão e Reuso]()
-    * [2.9- Componentes - Princípios SOLID]()
-    * [2.10- Componentes - Controller/View]()
-    * [2.11- Componentes - Formulários]()
-    * [2.12- Hooks - React-Query]()
-
+    * [2.6- Programa - Processamento Assíncrono]()
+    * [2.7- Programa - Acesso a APIs]()
+    * [2.8- Programa - Persistência no Client]()
+    * [2.9- Programa - Autenticação]()
+    * [2.10- Componentes - Coesão e Reuso]()
+    * [2.11- Componentes - Princípios SOLID]()
+    * [2.12- Componentes - Controller/View]()
+    * [2.13- Componentes - Formulários]()
+    * [2.14- Hooks - React-Query]()
 <br>
 
 ***
@@ -95,6 +96,7 @@ Na seção **Design Patterns** são apresentados os principais padrões de códi
 
 | Versão    | Data         | Descrição                                                |
 | :-------: | :----------: | :------------------------------------------------------- |
+| 01-D02    | 06-Jun-2023  | Atualização do Índice                                    |
 | 01-D01    | 05-Jun-2023  | Rascunho para primeira revisão técnica                   |
 | -         | -            | -                                                        |
 
