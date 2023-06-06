@@ -10,12 +10,14 @@ Neste capítulo, descrevemos padrões atualmente adotados no código BuildBox, o
 ###### [2.3- Programa - Roteamento de páginas]()<br>
 ###### [2.4- Programa - Menu(s) de navegação]()<br>
 ###### [2.5- Programa - Tratamento de erros]()<br>
-###### [2.6- Programa - Autenticação]()<br>
-###### [2.7- Acesso a APIs]()<br>
-###### [2.8- Componentes - Coesão e Reuso]()<br>
-###### [2.9- Componentes - Princípios SOLID]()<br>
-###### [2.10- Componentes - Controller/View]()<br>
-###### [2.11- Componentes - Formulários]()<br>
-###### [2.12- Hooks - React-Query]()<br>
+###### [2.6- Programa - Processamento Assíncrono]()<br>
+###### [2.7- Programa - Acesso a APIs]()<br>
+###### [2.8- Programa - Persistência no Client]()<br>
+###### [2.9- Programa - Autenticação]()<br>
+###### [2.10- Componentes - Coesão e Reuso]()<br>
+###### [2.11- Componentes - Princípios SOLID]()<br>
+###### [2.12- Componentes - Controller/View]()<br>
+###### [2.13- Componentes - Formulários]()<br>
+###### [2.14- Hooks - React-Query]()<br>
 
 ***
