@@ -4,7 +4,7 @@
 ***
 
 ### 1.4.1- Usar o DRY (**D**on't **R**epeat **Y**ourselt)  <br> 
-Código que tem o potencial de ser usados em outros lugares do sistema, ou seja, é genérico, deve ser escrito (encapsulados) dentro de uma função (que poderá, por sua vez, chamar outras funções).<br>
+Código que tem o potencial de ser usado em outros lugares do sistema, ou seja, é genérico, deve ser escrito (encapsulado) dentro de uma função (que poderá, por sua vez, chamar outras funções).<br>
 
 Em outras palavras, não escreva o mesmo código ou código muito parecido em mais de um lugar, no sistema. Se ocorrer a necessidade de fazer isso, encapsule tal código em uma função reusável.<br>
 
