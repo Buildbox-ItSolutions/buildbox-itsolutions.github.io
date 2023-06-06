@@ -225,9 +225,9 @@ Embora o código final ainda tenha 51 linhas, fica fácil de entender o que cada
 ***
 
 ### 1.3.4- Usar Exceptions para tratar erros 
-Todos os tipos de erro que impeçam o fluxo do programa de continuar ou de produzir resultados corretos, devem ser previstos e tratados por meio de excessões (**try  catch**).<br>
+Todos os tipos de erro que impeçam o fluxo do programa de continuar ou de produzir resultados corretos, devem ser previstos e tratados por meio de exceções (**try  catch**).<br>
 
-A idéia básica é validar todas as variáveis que serão utilizadas em determinado processamento e subir uma excessão, caso alguma delas tenha um valor inválido, antes da execução do processamento em questão.
+A idéia básica é validar todas as variáveis que serão utilizadas em determinado processamento e subir uma exceção, caso alguma delas tenha um valor inválido, antes da execução do processamento em questão.
 
 A seção [Design Patterns / Tratamento de erros]() detalha a forma padrão como isso deve ser feito no código da BuildBox.<br>
 <br>
