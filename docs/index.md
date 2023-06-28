@@ -28,8 +28,10 @@ Na seção **Design Patterns** são apresentados os principais padrões de códi
 
 ***
 
-## Índice de Conteúdo<br>
 <br>
+<br>
+
+## Índice de Conteúdo<br>
 
 ***
 
@@ -70,6 +72,7 @@ Na seção **Design Patterns** são apresentados os principais padrões de códi
 <br>
 <br>
 
+
 ***
 
 * [2- Design Patterns (Padrões de Design)](2-Design-Patterns/design-patterns.md)
@@ -88,7 +91,8 @@ Na seção **Design Patterns** são apresentados os principais padrões de códi
     * [2.13- Componentes - Formulários]()
     * [2.14- Hooks - React-Query]()
 <br>
-
+<br>
+<br>
 ***
 
 ## Histórico de Revisões<br>

@@ -5,7 +5,9 @@
 
 ### 1.1.1- Usar as seguintes notações de caixa
 - Nomes de variáveis, propriedades, funções, argumentos de funções: Usar **camelCase**<br>
-- Nomes de Componentes React: Usar **PascalCase**<br>
+- Nomes de Componentes React, Classes: Usar **PascalCase**<br>
+- Nomes de interfaces (TypeScript): Iniciar com 'I' maiúsculo, por ex: IUser
+- Nomes de ENUMS: Iniciar com 'E' maiúsculo, por ex: EUserStatus
 <br>
 
 ***
@@ -76,7 +78,7 @@ Nomes ruins<br>
 Usar o verbo que descreve o propósito da função + um objeto direto ou indireto<br>
 
     // Good 😀
-    function parseItemPrice(price: string) {...}
+    function parseItemPrice({ price }:{ price: string }) {...}
     function calculateTotalCost() {...}
     function getDeliveryDate() {...}
     function getRelativeShippingInfo() {...}
@@ -89,7 +91,7 @@ Usar o verbo que descreve o propósito da função + um objeto direto ou indiret
 Com TypeScript, alguns casos simples permitem o uso apenas do objeto direto, sem o verbo<br>
 
     // Good 😀
-    function toNumber(number: string)  {...}  // uma contração de stringToNumber() 
+    function toNumber({ price }:{ price: string })  {...}  // uma contração de convertStringToNumber() 
 
 <br>
 Nomes ruins para funções ou métodos<br>
@@ -104,24 +106,27 @@ Nomes ruins para funções ou métodos<br>
 
 <br>
 
+Comentar os casos em que a biblioteca já me dá nomes padrão, do tipo isLoading, fecth, etc.
+Explicar que, quando possível, devemos sobrescrever tais nomes.
+
 #### Componentes
-Os nomes dos componentes devem usar a convenção *PascalCase*, ou seja todas as palavras iniciam com letra maiúscula.<br>
+Os nomes dos componentes devem usar a convenção *PascalCase*, ou seja, todas as palavras iniciam com letra maiúscula.<br>
 Além disso, embora usemos componentes React funcionais, (funções JavaScript, ao invés de classes), devemos usar substantivos ou substantivos compostos, **sem uso** do verbo, como no caso das funções.<br>
 
     // Good 😀
     function Buttom(...) {...}
-    function RadioCard(...) {...}
+    function RadioButton(...) {...}
     function MultilinesTextField(...) {...}
-    function CancelOrderModal(...) {...} // 'Cancel' aqui não é um verbo e, sim, um adjetivo
+    function CancelOrderModal(...) {...} // Explicar melhor, 'Cancel' aqui não é um verbo e, sim, um adjetivo
     function SellerDetails(...) {...}
-    function AdminProductsList(...) {...}
+    function AdminProducts(...) {...}   // Refere-se a uma lista
     function SellerCreation(...) {...}
     function SellerEdition(...) {...}
     function EmailActivation(...) {...}
-    function ProductsList(...) {...}
+    function Products(...) {...}
 
     // Bad 😕
-    function AdminListProducts(...) {...}   // 'List' é um verbo ao invés de substantivo
+    function AdminProductsList(...) {...}   // Não usar a palavra List
     function CreateSeller(...) {...}        // Não deveria usar verbo
     function EditSeller(...) {...}          // Não deveria usar verbo
     function ListProducts(...) {...}        // 'List' é um verbo aqui
@@ -139,6 +144,7 @@ De modo geral, quanto mais amplo o escopo, mais específico deve ser o nome, par
 
 ***
 
+Nunca usar export default, para obrigar o uso do nome específico na importação.
 ### 1.1.4- Ser consistente no escopo do projeto
 Deve-se procurar usar os mesmos nomes e verbos para os mesmos tipos de conteúdo e/ou ações, dentro do projeto corrente e, se possível, entre todos os projetos da BuildBox.<br>
 
@@ -158,5 +164,8 @@ Por exemplo:<br>
 
 ### 1.1.5- Usar aspas simples
 Usar aspas simples ('') nos literais de strings e nomes de propriedades, ao invés de aspas duplas ("").<br>
+
+### 1.1.6- Bruno lembrar outro ponto sobre nomenclatura
+
 <br>
  

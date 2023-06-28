@@ -27,15 +27,6 @@ Exemplos de comentários úteis:
         // Function code goes here ...    
     }
 
-    function getUserData(userID) { 
-        /* 
-            This function retrieves user data from a database
-            Preconditions: The user must be authenticated and authorized. 
-            The user ID must be a valid string. 
-        */ 
-        // ... code to retrieve user data goes here ... 
-    }
-
     // accepts [text]@[text].[text], i.e. it simply requires an "@" and a dot
     const emailRegex = /\S+@\S+\.\S+/;
 
@@ -60,7 +51,8 @@ Exemplos de comentários úteis:
 - Nos componentes React, os grupos de elementos devem vir na ordem abaixo:<br>
 >- states<br>
 >- funções que tratam eventos da renderização ou são passadas para sub-componentes<br>
->- useEffects (dispô-los na ordem em que são chamados pela atualização dos states)<br>
->- funções que cooperam com a renderização<br>
->- return de renderização ou chamada da View do container<br>
+>- useEffects (Se houver uma sequência de atualização, dispô-los na ordem em que são chamados pela atualização dos states), e suas funções associadas<br>
+>- funções que cooperam com a renderização, funções que começam com 'render'<br>
+(Aparentemente, a melhor solução é transformar cada um destes renders em componentes separados )
+>- return de renderização do componente<br>
 <br>
