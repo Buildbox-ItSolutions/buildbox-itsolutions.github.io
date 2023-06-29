@@ -9,12 +9,13 @@
 - Nomes de interfaces (TypeScript): Iniciar com 'I' maiúsculo, por ex: IUser
 - Nomes de ENUMS: Iniciar com 'E' maiúsculo, por ex: EUserStatus
 <br>
+<br>
 
 ***
 
 ### 1.1.2- Usar nomes descritivos e com significado
 <br>
-Usar nomes que descrevem claramente e de forma distinta o conteúdo da variável, sem usar abreviações que obrigariam o leitor a procurar o significado; explícito é melhor do que implícito.<br>
+Usar nomes que descrevem claramente e de forma distinta o conteúdo da variável, a identidade do componente React ou a finalidade da função ou método, sem usar abreviações que obrigariam o leitor a procurar o significado; explícito é melhor do que implícito.<br>
 
 Por exemplo:<br>
 
@@ -34,16 +35,16 @@ Por exemplo:<br>
 
 <br>
 
-#### Variáveis, propriedades e argumentos de funções<br> 
+#### Especificamente, para nomes de variáveis, propriedades e argumentos de funções:<br> 
 Usar substantivos, simples ou compostos<br>
 
     // Good 😀
-    const colors = ['blue', 'green', 'yellow']
-    const color = { name: 'blue', hex: '#800080' }
-    const numberOfColors = 5
-    const numberOfSelectedColors = 2
+    const colors = ['blue', 'green', 'yellow']      // Substantivo simples
+    const color = { name: 'blue', hex: '#800080' }  // Subatantivo simples
+    const numberOfColors = 5                        // Substantivo composto
+    const numberOfSelectedColors = 2                // Substantivo composto
 <br>
-Usar um adjetivo seguido por um substantivo<br>
+Ou, usar um adjetivo seguido por um substantivo<br>
 
     // Good 😀
     const targetColor = 'purple'
@@ -73,15 +74,32 @@ Nomes ruins<br>
     }
 <br>
 
-#### Funções e métodos
+#### Nos nomes de funções e métodos:
 
 Usar o verbo que descreve o propósito da função + um objeto direto ou indireto<br>
 
     // Good 😀
     function parseItemPrice({ price }:{ price: string }) {...}
+    // Aqui:
+    // parse é o verbo 
+    // ItemPrice é o objeto direto
+
+    function getRelativeShippingInfo() {...}
+    // Aqui:
+    // get é o verbo 
+    // RelativeShippingInfo é o objeto direto
+
+    function extractUserDataFromTable({ userId }:{ userId: string }) {...}
+    // Aqui:
+    // extract é o verbo 
+    // UserData é o objeto direto
+    // From é uma preposição auxiliar. Importante neste caso, pois, sem ela,
+    // pareceria que o objeto direto é UserDataTable
+    // Table é o objeto indireto
+
+    // Outros bons exemplos:
     function calculateTotalCost() {...}
     function getDeliveryDate() {...}
-    function getRelativeShippingInfo() {...}
     function saveUserData() {...}
     function validateForm() {...}
     function displayErrorMessage() {...}
@@ -97,7 +115,7 @@ Com TypeScript, alguns casos simples permitem o uso apenas do objeto direto, sem
 Nomes ruins para funções ou métodos<br>
 
     // Bad 😕
-    function deliveryDate() {...}   // Falta o verbo
+    function deliveryDate() {...}   // Falta o verbo. Delivery aqui significa entrega, um substantivo
     function func1() {...}          // Não diz nada 
     function test() {...}           // Testa o quê?
     function fetch() {...}          // Faz um fetch em quê?
@@ -106,20 +124,23 @@ Nomes ruins para funções ou métodos<br>
 
 <br>
 
-Comentar os casos em que a biblioteca já me dá nomes padrão, do tipo isLoading, fecth, etc.
-Explicar que, quando possível, devemos sobrescrever tais nomes.
+#### Nos nomes de funções e propriedades, herdados de bibliotecas:
 
-#### Componentes
-Os nomes dos componentes devem usar a convenção *PascalCase*, ou seja, todas as palavras iniciam com letra maiúscula.<br>
-Além disso, embora usemos componentes React funcionais, (funções JavaScript, ao invés de classes), devemos usar substantivos ou substantivos compostos, **sem uso** do verbo, como no caso das funções.<br>
+Nestes casos, como por exemplo uma função chamada **fetch** ou uma property chamada **isLoading,**, quando possível, sobrescrever tais nomes genéricos com nomes mais específicos, no contexto do seu aplicativo, como por exemplo, **isClientLoading** ou **fetchClientAccountData**.
+<br>
+<br>
+
+#### Nomes de componentes React:
+Os nomes dos componentes, ou objetos importados de bibliotecas, devem usar a convenção *PascalCase*, ou seja, todas as palavras iniciam com letra maiúscula. Além disso, embora usemos componentes React funcionais, (que são funções JavaScript, ao invés de classes), devemos usar substantivos ou substantivos compostos, **sem uso** do verbo, como no caso das variáveis, pois os componentes representam principalmente coisas (embora contenham funções).<br>
 
     // Good 😀
     function Buttom(...) {...}
     function RadioButton(...) {...}
     function MultilinesTextField(...) {...}
-    function CancelOrderModal(...) {...} // Explicar melhor, 'Cancel' aqui não é um verbo e, sim, um adjetivo
+    function CancelOrderModal(...) {...} // A palavra 'Cancel', aqui, não está sendo usada como um 
+                                         // verbo (Cancelar) e, sim, como um adjetivo (Cancelamento)
     function SellerDetails(...) {...}
-    function AdminProducts(...) {...}   // Refere-se a uma lista
+    function AdminProducts(...) {...}    // Pode referir-se a uma lista
     function SellerCreation(...) {...}
     function SellerEdition(...) {...}
     function EmailActivation(...) {...}
@@ -129,7 +150,7 @@ Além disso, embora usemos componentes React funcionais, (funções JavaScript, 
     function AdminProductsList(...) {...}   // Não usar a palavra List
     function CreateSeller(...) {...}        // Não deveria usar verbo
     function EditSeller(...) {...}          // Não deveria usar verbo
-    function ListProducts(...) {...}        // 'List' é um verbo aqui
+    function ListProducts(...) {...}        // 'List' é um verbo aqui e não deveria ser usado
 <br>
 
 ***
@@ -144,7 +165,6 @@ De modo geral, quanto mais amplo o escopo, mais específico deve ser o nome, par
 
 ***
 
-Nunca usar export default, para obrigar o uso do nome específico na importação.
 ### 1.1.4- Ser consistente no escopo do projeto
 Deve-se procurar usar os mesmos nomes e verbos para os mesmos tipos de conteúdo e/ou ações, dentro do projeto corrente e, se possível, entre todos os projetos da BuildBox.<br>
 
@@ -163,9 +183,15 @@ Por exemplo:<br>
 ***
 
 ### 1.1.5- Usar aspas simples
-Usar aspas simples ('') nos literais de strings e nomes de propriedades, ao invés de aspas duplas ("").<br>
+Usar aspas simples (' ') nos literais de strings e nomes de propriedades, ao invés de aspas duplas (" ").<br>
 
-### 1.1.6- Bruno lembrar outro ponto sobre nomenclatura
+<br>
+
+***
+
+### 1.1.6- Não usar **export default**
+Nunca usar export default para exportar um componente React, 
+de modo a obrigar o uso do nome específico na importação.
 
 <br>
  

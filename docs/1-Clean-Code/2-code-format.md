@@ -39,7 +39,13 @@ Exemplos de comentários úteis:
 - Usar identação para expressar o escopo<br>
 - Não usar ponto e vírgula ao final das declarações, a menos que necessário...<br>
 - Usar aspas simples nas literais de strings e nomes de propriedades<br>
-- Para garantir as regras acima, [usar esta configuração do VSCode para formatação horizontal](5-vscode-config.md)<br>
+- Para garantir as regras acima, crie ou substitua o arquivo de nome '.prettierrc', na pasta raiz do projeto, com o seguinte objeto:<br>
+
+![arquivo de configuracao do prettier](config_prettier.png)
+<br>
+
+Isto fará com que o plugin prettier salve o arquivo fonte com as regras de formatação horizontal, definidas acima.
+<br>
 <br>
 
 ***
@@ -52,7 +58,7 @@ Exemplos de comentários úteis:
 >- states<br>
 >- funções que tratam eventos da renderização ou são passadas para sub-componentes<br>
 >- useEffects (Se houver uma sequência de atualização, dispô-los na ordem em que são chamados pela atualização dos states), e suas funções associadas<br>
->- funções que cooperam com a renderização, funções que começam com 'render'<br>
-(Aparentemente, a melhor solução é transformar cada um destes renders em componentes separados )
+>- funções que cooperam com a renderização, cujo nome deveria começar com *render*.<br>
+(Idealmente, cada uma destas funções deveria ser transformada em um componente React separado, mas em casos de funções bem pequenas, talvez seja mais legível deixá-las, aqui, no componente cliente )
 >- return de renderização do componente<br>
 <br>
