@@ -32,9 +32,8 @@ Na pasta principal do projeto, cujo nome é o nome do projeto, ou uma abreviaç�
 
 ## Conteúdo da pasta **/src**
 
-A pasta '/src' deve ter os arquivos e sub-folders vistos na figura abaixo
+Na pasta '/src' deve-se procurar seguir os nomes de arquivos e sub-folders vistos na figura abaixo
 
-<br>
 
 ![/src Folder](./images/src-folder.png)
 
@@ -52,7 +51,7 @@ A pasta '/src' deve ter os arquivos e sub-folders vistos na figura abaixo
 | types          | Declarações das interfaces e tipos typescript usadas no aplicativo. |
 | utils          | Funções genéricas e auxiliares para a implementação do aplicativo. |
 | views          | Todos os componentes que são telas do aplicativo. |
-| App.tsx        | Este arquivo declara o componente raiz do aplicativo, sempre chamado de **App**, <br> o qual inicia a renderização do componente **Router**, que por sua vez, controla <br> a renderização das demais telas do sistema. <br> A seção [2.3- Programa - Roteamento de páginas]() apresenta mais detalhes sobre <br> o funcionamento destes componentes. |
+| App.tsx        | Este arquivo declara o componente raiz do aplicativo, sempre chamado de **App**, <br> o qual inicia a renderização do componente **Routes**, que por sua vez, controla <br> a renderização das demais telas do sistema. <br> A seção [2.3- Programa - Roteamento de páginas]() apresenta mais detalhes sobre <br> o funcionamento destes componentes. |
 | index.tsx      | Este arquivo é gerado automaticamente pelo script *create-react-app*, é padrão em <br> todos os frontends e, basicamente, é usado para vincular o componente React raiz, <br> do aplicativo, ao elemento HTML que apresenta o conteúdo da página de entrada <br> do aplicativo. <br> <br> ![index.tsx contents](./images/index.tsx.png) <br> <br> Como padrão, sempre chamamos o componente React raiz de 'App' e o elemento <br> HTML, que apresenta o conteúdo da página index.html, de 'root', como se observa <br> na figura acima. Além disso, o arquivo 'index.html', é sempre criado na pasta '/public' <br> pelo script *create-react-app*.
 
 ***
