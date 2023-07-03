@@ -5,9 +5,9 @@ Caso tenha interesse, existe um site muito didático sobre eles [aqui](https://r
 
 Neste capítulo, descrevemos padrões atualmente adotados no código BuildBox, organizados nas categorias a seguir.
 
-###### [2.1- Programa - Estrutura de pastas do projeto]()<br>
+###### [2.1- Programa - Estrutura de pastas do projeto](folder-structure.md)<br>
 ###### [2.2- Programa - Configuração de estilos]()<br>
-###### [2.3- Programa - Roteamento de páginas]()<br>
+###### [2.3- Programa - Roteamento de páginas](page-routing.md)<br>
 ###### [2.4- Programa - Menu(s) de navegação]()<br>
 ###### [2.5- Programa - Tratamento de erros]()<br>
 ###### [2.6- Programa - Processamento Assíncrono]()<br>
