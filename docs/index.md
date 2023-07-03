@@ -79,7 +79,7 @@ Na seção **Design Patterns** são apresentados os principais padrões de códi
     * [2.1- Programa - Estrutura de pastas do projeto](2-Design-Patterns/folder-structure.md)
     * [2.2- Programa - Configuração de estilos]()
     * [2.3- Programa - Roteamento de páginas](2-Design-Patterns/page-routing.md)
-    * [2.4- Programa - Menu(s) de navegação]()
+    * [2.4- Programa - Menu(s) de navegação](2-Design-Patterns/navigation-menu.md)
     * [2.5- Programa - Tratamento de erros]()
     * [2.6- Programa - Processamento Assíncrono]()
     * [2.7- Programa - Acesso a APIs]()

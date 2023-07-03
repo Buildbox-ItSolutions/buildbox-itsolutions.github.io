@@ -8,7 +8,7 @@ Neste capítulo, descrevemos padrões atualmente adotados no código BuildBox, o
 - [2.1- Programa - Estrutura de pastas do projeto](folder-structure.md)<br>
 - [2.2- Programa - Configuração de estilos]()<br>
 - [2.3- Programa - Roteamento de páginas](page-routing.md)<br>
-- [2.4- Programa - Menu(s) de navegação]()<br>
+- [2.4- Programa - Menu(s) de navegação](navigation-menu.md)<br>
 - [2.5- Programa - Tratamento de erros]()<br>
 - [2.6- Programa - Processamento Assíncrono]()<br>
 - [2.7- Programa - Acesso a APIs]()<br>

@@ -1,4 +1,4 @@
-# Roteamento de páginas do Aplicativo
+# Header e Menu de navegação do Aplicativo
 
 O controle de navegação entre as páginas se inicia no elemento HTML raiz do aplicativo, inicializado no arquivo **index.tsx**, conforme explicado na página que apresenta a estrutura de pastas, aqui [Estrutura de Pastas do Projeto](folder-structure.md).
 
