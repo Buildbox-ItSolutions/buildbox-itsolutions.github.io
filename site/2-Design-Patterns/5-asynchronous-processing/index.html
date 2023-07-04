@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>2.1- Padrões de Design - Code Patterns</title>
+    <title>2.5- Processamento Assíncrono - Code Patterns</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "2.1- Padr\u00f5es de Design";
-        var mkdocs_page_input_path = "2-Design-Patterns\\1-design-patterns.md";
+        var mkdocs_page_name = "2.5- Processamento Ass\u00edncrono";
+        var mkdocs_page_input_path = "2-Design-Patterns\\5-asynchronous-processing.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -59,9 +59,7 @@
               </ul>
               <p class="caption"><span class="caption-text">2 Design Patterns</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">2.1- Padrões de Design</a>
-    <ul class="current">
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../1-design-patterns/">2.1- Padrões de Design</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../2-folder-structure/">2.2- Estrutura de Pastas do Projeto</a>
                   </li>
@@ -69,7 +67,9 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../4-navigation-menu/">2.4- Header e Menu de navegação do Aplicativo</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../5-asynchronous-processing/">2.5- Processamento Assíncrono</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">2.5- Processamento Assíncrono</a>
+    <ul class="current">
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../6-api-access/">2.6- Acesso a APIs externas</a>
                   </li>
@@ -93,7 +93,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
           <li>2 Design Patterns &raquo;</li>
-      <li>2.1- Padrões de Design</li>
+      <li>2.5- Processamento Assíncrono</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -102,35 +102,45 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="21-padroes-de-design">2.1- Padrões de Design</h1>
-<p>Os padrões descritos aqui não são os 23 Design Patterns tornados 'clássicos' pelo livro <a href="https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612">Design Patterns, Elements of Reusable Object Oriented Software</a>, cuja primeira edição data de 1994.<br>
-Caso tenha interesse, existe um site muito didático sobre eles <a href="https://refactoring.guru/design-patterns">aqui</a>.</p>
-<p>Neste capítulo, descrevemos padrões atualmente adotados no código BuildBox, organizados nas categorias a seguir.</p>
+                <h1 id="25-processamento-assincrono">2.5- Processamento Assíncrono</h1>
+<p>Sempre que for necessário aguardar um processamento assíncrono, cujo tempo de execução não pode ser controlado pelo aplicativo, devem ser usadas as <em>keywords</em> <strong>async</strong> e <strong>await</strong>, de forma a garantir que o aplicativo não trave o <em>loop de eventos</em> do <em>engine javascript</em> (o que poderia produzir a experiência de travamento no navegador, para o usuário, no caso de frontend). A mesma regra deve ser seguida no backend, usando node.js ou em dispositivos <em>mobile</em>.<br></p>
+<p>Exemplos deste tipo de situação, em um frontend, são:
+- Acesso ao backend
+- Acesso a uma API externa, por exemplo, Google ou AWS Storage.
+- Acesso direto a um Banco de Dados, via nbiblioteca SDK ou via uma API
+- Execução de qualquer função que retorne uma Promessa (Promise)</p>
+<p>Vamos fornecer alguns exemplos de como fazer isso. <br></p>
 <ul>
-<li><a href="../2-folder-structure/">2.1- Programa - Estrutura de pastas do projeto</a><br></li>
-<li><a href="">2.2- Programa - Configuração de estilos</a><br></li>
-<li><a href="../3-page-routing/">2.3- Programa - Roteamento de páginas</a><br></li>
-<li><a href="../4-navigation-menu/">2.4- Programa - Menu(s) de navegação</a><br></li>
-<li><a href="../5-asynchronous-processing/">2.5- Programa - Processamento Assíncrono</a></li>
-<li><a href="../6-api-access/">2.6- Programa - Acesso a APIs</a></li>
-<li><a href="../7-error-treatment/">2.7- Programa - Tratamento de erros</a></li>
-<li><a href="../8-state-management/">2.8- Programa - Gerenciamento de <em>State</em></a><br></li>
-<li><a href="">2.9- Programa - Persistência no <em>Client</em></a><br></li>
-<li><a href="">2.10- Programa - Autenticação</a><br></li>
-<li><a href="">2.11- Componentes - Coesão e Reuso</a><br></li>
-<li><a href="">2.12- Componentes - Princípios SOLID</a><br></li>
-<li><a href="">2.13- Componentes - Controller/View</a><br></li>
-<li><a href="">2.14- Componentes - Formulários</a><br></li>
-<li><a href="">2.15- Componentes - Hooks</a><br></li>
+<li>Acesso ao backend:<br></li>
 </ul>
+<p><img alt="Acesso ao Backend" src="../images/backend-access.png" />
+<br></p>
+<p>Neste caso, a <em>keyword</em> <strong>await</strong> precisa ser usada antes da função <strong>axiosInstance.patch(...)</strong>, para garantir que a função só retorna quando os dados em <strong>response.data</strong> estiverem prontos.<br>
+Enquanto isso não ocorre, o <em>engine</em> JavaScript passa o controle do fluxo para o <strong>loop de eventos</strong> que irá determinar que outras <em>threads</em> do aplicativo ou de outros sistemas, devem ser executados, impedindo assim, que o seu navegador trave.</p>
 <p><br></p>
+<ul>
+<li>Acesso a uma API externa:<br></li>
+</ul>
+<p><img alt="Acesso a API externa" src="../images/bank-api-access.png" /></p>
+<p><br>
+Similar ao exemplo anterior.<br>
+<br></p>
+<p>Um ponto importante, aqui, diz respeito à chamada deste tipo de função nas funções de nível mais elevado. É importante procurar usar sempre as <em>keywords</em> <strong>async</strong> e <strong>await</strong>, ao invés de callbacks ou de chaining com o método <strong>.then(...)</strong>.</p>
+<p>Neste caso, a opção abaixo<br></p>
+<p><img alt="Acesso a API externa" src="../images/await-call.png" />
+<br></p>
+<p>é a recomendada, em relação à versão chained, abaixo<br></p>
+<p><img alt="Acesso a API externa" src="../images/chained-then.png" />
+<br></p>
+<p><br>
+<br></p>
 <hr />
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../1-Clean-Code/5-vscode-config/" class="btn btn-neutral float-left" title="1.5- Configuração VSCode"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../2-folder-structure/" class="btn btn-neutral float-right" title="2.2- Estrutura de Pastas do Projeto">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../4-navigation-menu/" class="btn btn-neutral float-left" title="2.4- Header e Menu de navegação do Aplicativo"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../6-api-access/" class="btn btn-neutral float-right" title="2.6- Acesso a APIs externas">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -153,10 +163,10 @@ Caso tenha interesse, existe um site muito didático sobre eles <a href="https:/
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../1-Clean-Code/5-vscode-config/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../4-navigation-menu/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../2-folder-structure/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../6-api-access/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -100,6 +100,7 @@ Na seção **Design Patterns** são apresentados os principais padrões de códi
 
 | Versão    | Data         | Descrição                                                |
 | :-------: | :----------: | :------------------------------------------------------- |
+| 01-D03    | 30-Jun-2023  | Adição da 1a. parte de Design Patterns, para revisão     |
 | 01-D02    | 06-Jun-2023  | Atualização do Índice                                    |
 | 01-D01    | 05-Jun-2023  | Rascunho para primeira revisão técnica                   |
 | -         | -            | -                                                        |
