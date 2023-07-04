@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>2.3- Roteamento de páginas do Aplicativo - Code Patterns</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2.3- Roteamento de p\u00e1ginas do Aplicativo";
+        var mkdocs_page_input_path = "2-Design-Patterns\\3-page-routing.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Code Patterns
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Padrões de Código<br></a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1 Clean Code</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/1-nomenclature/">1.1- Nomenclatura</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/2-code-format/">1.2- Formatação do código</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/3-flow-control/">1.3- Controle do fluxo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/4-functions/">1.4- Funções e métodos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/5-vscode-config/">1.5- Configuração VSCode</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2 Design Patterns</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../1-design-patterns/">2.1- Padrões de Design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2-folder-structure/">2.2- Estrutura de Pastas do Projeto</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">2.3- Roteamento de páginas do Aplicativo</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#componente-app">Componente App</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#componente-routes">Componente Routes</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#arquivo-routests">Arquivo routes.ts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#arquivo-indextsx">Arquivo index.tsx</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../4-navigation-menu/">2.4- Header e Menu de navegação do Aplicativo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../6-asynchronous-processing/">2.6- Processamento Assíncrono</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../8-state-management/">2.8- Gerenciamento de State</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Code Patterns</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>2 Design Patterns &raquo;</li>
+      <li>2.3- Roteamento de páginas do Aplicativo</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="23-roteamento-de-paginas-do-aplicativo">2.3- Roteamento de páginas do Aplicativo</h1>
+<p>O controle de navegação entre as páginas se inicia no elemento HTML raiz do aplicativo, inicializado no arquivo <strong>index.tsx</strong>, conforme explicado na página que apresenta a estrutura de pastas, aqui <a href="../2-folder-structure/">Estrutura de Pastas do Projeto</a>.</p>
+<p>Após as inicializações necessárias, a renderização do elemento raiz (método <strong>render(...)</strong> abaixo) passa o controle do fluxo do aplicativo para o componente raiz do aplicativo, chamado <strong>App</strong>.</p>
+<p><img alt="index.tsx contents" src="../images/index.tsx.png" /></p>
+<p>A seguir, descrevemos o componente <strong>App</strong>.</p>
+<p><br></p>
+<hr />
+<h3 id="componente-app">Componente <strong>App</strong></h3>
+<p><br></p>
+<p>Este componente é declarado no arquivo <strong>App.tsx</strong>, sendo o componente raiz do aplicativo, que deve ser, sempre, chamado de 'App'.</p>
+<p>O 'coração' deste componente está no <strong>return</strong> de renderização, onde o componente que controla a renderização de todas as páginas e sub-componentes, chamado por padrão de 'Router', é envolto (<em>wrapped</em>) por vários contextos React que serão disponibilizados a todos os componentes do aplicativo.</p>
+<p><img alt="App component" src="../images/app-component.png" /></p>
+<p><strong>SoundProvider</strong> é um componente provedor de contexto, desenvolvido pela BuildBox no arquivo 'src/context/SoundProvider.tsx', que utiliza a biblioteca <a href="https://github.com/joshwcomeau/use-sound#readme"><strong>use-sound</strong></a>, e basicamente provê um <em>hook</em> capaz de reproduzir arquivos <strong>.mp3</strong>.</p>
+<p><strong>Provider</strong> é o componente da biblioteca <a href="https://react-redux.js.org/"><strong>redux</strong></a> que permite o armazenamento de informações, tais como informações do cliente ou transação, etc., de forma estruturada na máquina cliente.</p>
+<p><strong>PersistGate</strong> é o componente, da biblioteca <a href="https://github.com/rt2zz/redux-persist"><strong>redux-persist</strong></a> que permite a persistência dos dados salvos no <em>store</em> redux.</p>
+<p><strong>ThemeProvider</strong> é um componente, da biblioteca <a href="https://styled-components.com/"><strong>styled-components</strong></a>, que permite definir um tema default para os aplicativos.</p>
+<p><strong>MuiThemeProvider</strong> é um segundo componente provedor de tema, que permite addicionar mais informações default ao tema default nos aplicativos, neste caso usando os recursos da biblioteca <a href="https://mui.com/"><strong>MUI</strong></a>.</p>
+<p><strong>QueryClient</strong> e <strong>QueryClientProvider</strong> são componentes, da biblioteca <a href="https://tanstack.com/query/latest"><strong>react-query</strong></a>, que padronizam e facilitam a codificação da comunicação com API externas.</p>
+<p>Além dos contextos acima, temos:</p>
+<ul>
+<li>
+<p>Um styled-component, chamado <strong>GlobalStyle</strong>, mantido no arquivo 'src/styles/GlobalStyle.ts', que define o .css geral default de todas as páginas.</p>
+</li>
+<li>
+<p>Um componente chamado <strong>ToastContainer</strong>, parte da biblioteca <a href="https://fkhadra.github.io/react-toastify"><strong>react-toastify</strong></a>, usado para exibição de mensagens para o usuário.</p>
+</li>
+</ul>
+<p><br>
+<br></p>
+<hr />
+<h3 id="componente-routes">Componente <strong>Routes</strong></h3>
+<p><br></p>
+<p>O código deste componente está na pasta <strong>/src/routes</strong>, sendo o componente onde são declaradas todas as páginas e rotas do aplicativo.
+<br>
+<br></p>
+<hr />
+<h4 id="arquivo-routests">Arquivo <strong>routes.ts</strong></h4>
+<p>O arquivo <strong>routes</strong> declara um array de objetos do tipo <strong>IRoute</strong>, que servem para configurar as seguintes informações de cada página do aplicativo:</p>
+<pre><code>export interface IRoute {
+    element: string | FunctionComponent&lt;{}&gt; | ComponentClass&lt;{}&gt;
+    title?: string
+    path: string
+    secure?: boolean
+    fullPage?: boolean
+    layout?: boolean
+    menu?: boolean
+    accessType?: UserTypesEnum[]
+    children?: IRoute[]
+}
+</code></pre>
+<p>Esta interface IRoute está definida no arquivo <strong>/src/routes/types</strong>.<br></p>
+<p>Onde:</p>
+<p><strong>element</strong> é uma referência para o componente React que implemente a página.<br>
+<strong>title</strong> é uma string com o título da página.<br>
+<strong>path</strong> é o caminho da página no servidor.<br>
+<strong>secure</strong> é uma variável booleana, onde <strong>true</strong> indica que a página só pode ser acessada com por um usuário logado no aplicativo, ou seja que tenha sido autenticado.<br>
+<strong>fullPage</strong>, variável cujo uso foi descontinuado.<br>
+<strong>layout</strong>, variável booleana onde <strong>true</strong> indica que deve ser usado um layout externo, com Header e Menu Lateral, definidos no componente <strong>Layout</strong>, na pasta <strong>/src/components/Layout</strong>, em torno do componente da página. No caso do valor da variável ser <strong>false</strong>, ou undefined, será usado apenas o layout definido pelo componente da página.<br>
+<strong>menu</strong>, variável booleana cujo uso foi descontinuado.<br>
+<strong>accessType</strong>, é um array que contém todos os perfis de usuário que podem acessar a página. Se Se esta variável contiver um array de valores de perfil, somente os usuários que tenham um desses perfis poderão acessá-la.<br>
+<strong>children</strong> é uma variável que contém a referência para o componente React que implementa a página.<br>
+<br></p>
+<p>Os tipos de perfis de usuários são arbitrários por aplicativo e devem ser definidos como um Enum no arquivo <strong>/src/routes/types.ts</strong>, juntamente com a definição da interface <strong>IRoute</strong>.<br>
+<br></p>
+<p>Um exemplo:<br>
+<img alt="Exemplo de perfis de usuário" src="../images/user-profiles-enum.png" /></p>
+<p><br>
+<br></p>
+<hr />
+<h4 id="arquivo-indextsx">Arquivo <strong>index.tsx</strong></h4>
+<p>O arquivo <strong>index.tsx</strong>:<br>
+- implementa o mecanismo genérico que chama a renderização de todas as páginas configuradas no arquivo <strong>routes.ts</strong><br>
+- controla o acesso a cada página, por meio da função <strong>handlePermission(...)</strong><br>
+- redireciona o fluxo para a página de Login, caso o usuário ainda não esteja logado (autenticado).<br>
+- trata redirecionamentos específicos, no caso de Erro 4, retornado pelo backend, através do componente <strong>Redirect</strong>, implementado no arquivo <strong>/src/routes/redirect.tsx</strong>. 
+<br>
+<br></p>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../2-folder-structure/" class="btn btn-neutral float-left" title="2.2- Estrutura de Pastas do Projeto"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../4-navigation-menu/" class="btn btn-neutral float-right" title="2.4- Header e Menu de navegação do Aplicativo">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../2-folder-structure/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../4-navigation-menu/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

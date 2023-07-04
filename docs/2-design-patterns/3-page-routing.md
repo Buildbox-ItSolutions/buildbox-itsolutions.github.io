@@ -1,6 +1,6 @@
 # 2.3- Roteamento de páginas do Aplicativo
 
-O controle de navegação entre as páginas se inicia no elemento HTML raiz do aplicativo, inicializado no arquivo **index.tsx**, conforme explicado na página que apresenta a estrutura de pastas, aqui [Estrutura de Pastas do Projeto](folder-structure.md).
+O controle de navegação entre as páginas se inicia no elemento HTML raiz do aplicativo, inicializado no arquivo **index.tsx**, conforme explicado na página que apresenta a estrutura de pastas, aqui [Estrutura de Pastas do Projeto](2-folder-structure.md).
 
 Após as inicializações necessárias, a renderização do elemento raiz (método **render(...)** abaixo) passa o controle do fluxo do aplicativo para o componente raiz do aplicativo, chamado **App**.
 

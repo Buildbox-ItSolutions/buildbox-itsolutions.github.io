@@ -67,7 +67,17 @@
               </ul>
               <p class="caption"><span class="caption-text">2 Design Patterns</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../2-Design-Patterns/design-patterns/">Padrões de Design</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2-Design-Patterns/1-design-patterns/">2.1- Padrões de Design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2-Design-Patterns/2-folder-structure/">2.2- Estrutura de Pastas do Projeto</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2-Design-Patterns/3-page-routing/">2.3- Roteamento de páginas do Aplicativo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2-Design-Patterns/4-navigation-menu/">2.4- Header e Menu de navegação do Aplicativo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2-Design-Patterns/6-asynchronous-processing/">2.6- Processamento Assíncrono</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2-Design-Patterns/8-state-management/">2.8- Gerenciamento de State</a>
                   </li>
               </ul>
       </div>
@@ -117,15 +127,6 @@
     // Function code goes here ...    
 }
 
-function getUserData(userID) { 
-    /* 
-        This function retrieves user data from a database
-        Preconditions: The user must be authenticated and authorized. 
-        The user ID must be a valid string. 
-    */ 
-    // ... code to retrieve user data goes here ... 
-}
-
 // accepts [text]@[text].[text], i.e. it simply requires an "@" and a dot
 const emailRegex = /\S+@\S+\.\S+/;
 </code></pre>
@@ -137,9 +138,13 @@ const emailRegex = /\S+@\S+\.\S+/;
 <li>Usar identação para expressar o escopo<br></li>
 <li>Não usar ponto e vírgula ao final das declarações, a menos que necessário...<br></li>
 <li>Usar aspas simples nas literais de strings e nomes de propriedades<br></li>
-<li>Para garantir as regras acima, <a href="../5-vscode-config/">usar esta configuração do VSCode para formatação horizontal</a><br>
-<br></li>
+<li>Para garantir as regras acima, crie ou substitua o arquivo de nome '.prettierrc', na pasta raiz do projeto, com o seguinte objeto:<br></li>
 </ul>
+<p><img alt="arquivo de configuracao do prettier" src="../config_prettier.png" />
+<br></p>
+<p>Isto fará com que o plugin prettier salve o arquivo fonte com as regras de formatação horizontal, definidas acima.
+<br>
+<br></p>
 <hr />
 <h3 id="123-formatacao-vertical">1.2.3- Formatação vertical</h3>
 <ul>
@@ -150,9 +155,10 @@ const emailRegex = /\S+@\S+\.\S+/;
 <ul>
 <li>states<br></li>
 <li>funções que tratam eventos da renderização ou são passadas para sub-componentes<br></li>
-<li>useEffects (dispô-los na ordem em que são chamados pela atualização dos states)<br></li>
-<li>funções que cooperam com a renderização<br></li>
-<li>return de renderização ou chamada da View do container<br>
+<li>useEffects (Se houver uma sequência de atualização, dispô-los na ordem em que são chamados pela atualização dos states), e suas funções associadas<br></li>
+<li>funções que cooperam com a renderização, cujo nome deveria começar com <em>render</em>.<br>
+(Idealmente, cada uma destas funções deveria ser transformada em um componente React separado, mas em casos de funções bem pequenas, talvez seja mais legível deixá-las, aqui, no componente cliente )</li>
+<li>return de renderização do componente<br>
 <br></li>
 </ul>
 </blockquote>
