@@ -23,7 +23,7 @@ Além disso, este arquivo define, também, duas outras funções anônimas, que 
 
 A função que intercepta a resposta é usada para fins de depuração, quando o sistema está em ambiente de desenvolvimento.<br>
 
-A função de tratamento de erros trabalha de forma similar à situação de envio de request, mostrada acima.<br>
+A função de tratamento de erros trabalha de forma similar à situação de envio de request, mostrada anteriormente.<br>
 <br>
 <br>
 
