@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>2.8- Gerenciamento de State - Code Patterns</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2.8- Gerenciamento de State";
+        var mkdocs_page_input_path = "2-Design-Patterns\\8-state-management.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Code Patterns
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Padrões de Código<br></a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1 Clean Code</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/1-nomenclature/">1.1- Nomenclatura</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/2-code-format/">1.2- Formatação do código</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/3-flow-control/">1.3- Controle do fluxo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/4-functions/">1.4- Funções e métodos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/5-vscode-config/">1.5- Configuração VSCode</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2 Design Patterns</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../1-design-patterns/">2.1- Padrões de Design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2-folder-structure/">2.2- Estrutura de Pastas do Projeto</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../3-page-routing/">2.3- Roteamento de páginas do Aplicativo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../4-navigation-menu/">2.4- Header e Menu de navegação do Aplicativo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../6-asynchronous-processing/">2.6- Processamento Assíncrono</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">2.8- Gerenciamento de State</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#o-que-e-gerenciamento-de-state">O que é Gerenciamento de state ?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#funcionamento-do-react-redux">Funcionamento do React-Redux</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#passo-1-copiar-o-codigo-do-store-do-harv">Passo 1: Copiar o código do store do Harv</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#passo-2-alterar-o-arquivo-srcstoreindexts">Passo 2: Alterar o arquivo /src/store/index.ts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#passo-3-alterar-o-arquivo-srcstoreducksindexts">Passo 3: Alterar o arquivo /src/store/ducks/index.ts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#passo-4-alterar-os-arquivos-onde-sao-definidas-as-acoes-redux">Passo 4: Alterar o(s) arquivo(s) onde são definidas as ações redux</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#em-primeiro-lugar">Em primeiro lugar</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#em-segundo-lugar">Em segundo lugar</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#em-terceiro-lugar">Em terceiro lugar</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#alteracoes-a-serem-feitas-no-arquivo">Alterações a serem feitas no arquivo</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Code Patterns</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>2 Design Patterns &raquo;</li>
+      <li>2.8- Gerenciamento de State</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="28-gerenciamento-de-state">2.8- Gerenciamento de State</h1>
+<p><br></p>
+<h2 id="o-que-e-gerenciamento-de-state">O que é Gerenciamento de <em>state</em> ?</h2>
+<p>O <em>State</em> é um conjunto de informações que são importantes para todo o aplicativo, no frontend (<em>Client</em>), e que precisam ser preservadas na memória desse cliente. Tipicamente, o <em>state</em> é constituído por informações do usuário logado, tais como, nome, e-mail, avatar, token, etc., mas pode incluir outros tipos de informação.<br></p>
+<p>O <em>Gerenciamento de state</em> é simplesmente a forma como as informações do state são obtidas, salvas em um repositório na memória e recuperadas desse repositório, para uso pelos diversos componentes React do aplicativo.</p>
+<p>Com o objetivo de evitar que cada aplicativo criado efetue esse gerenciamento de uma forma diferente e, também, para garantir que se usem as melhores e mais eficientes práticas, nos aplicativos da <strong>BuildBox</strong> usamos as bibliotecas <a href="https://react-redux.js.org/"><strong>react-redux</strong></a> e <a href="https://github.com/rt2zz/redux-persist#readme"><strong>redux-persist</strong></a>, para realizar o gerenciamento de <em>state</em> nos <em>Clients</em>, tanto <em>web</em> quanto <em>mobile</em>.</p>
+<p>A biblioteca <strong>react-redux</strong> é, basicamente, um recipiente (<em>store</em>) para manter todo o <em>state</em> do aplicativo em um repositório único, e que, ao mesmo tempo, define métodos padrão estritos para salvar e disponibilizar as informações no e do store, a partir dos componentes React do aplicativo.<br></p>
+<p>A biblioteca <strong>redux-persist</strong> permite que o <em>store</em> do <strong>react-redux</strong> seja persistido por um <em>storage engine</em>, como por exemplo, o <em>LocalStorage</em> do navegador ou o <em>AsyncStorage</em> no <strong>React-Native</strong>, o que possibilita a persistência do store, mesmo após atualizações (<em>refreshes</em>) do navegador, reinicialização do navegador, ou até do dispositivo.<br>
+<br>
+<br></p>
+<h2 id="funcionamento-do-react-redux">Funcionamento do React-Redux</h2>
+<p>O <strong>react-redux</strong> possui 4 componentes principais:</p>
+<ul>
+<li>Um <em>store</em> onde serão armazenadas as informações do aplicativo, que nos interessa armazenar.<br></li>
+<li>Um componente React, chamado <strong>Provider</strong> que é responsável por disponibilizar o <em>store</em> <strong>redux</strong> a todos os componentes da árvore de componentes React.. Ele envolve toda a árvore de renderização do React, permitindo que todos os componentes envolvidos tenham acesso ao <em>store</em><br></li>
+<li>Ações para salvar partes específicas do <em>state</em> do aplicativo no <em>store</em>.<br></li>
+<li>Ações para ler partes específicas do <em>state</em> armazenado no <em>store</em>.<br>
+<br></li>
+</ul>
+<p>Vamos explicar como isso deve ser feito na forma padronizada definida para o código da <strong>BuildBox</strong>.</p>
+<p><br></p>
+<h3 id="passo-1-copiar-o-codigo-do-store-do-harv">Passo 1: Copiar o código do <em>store</em> do Harv</h3>
+<p>O código é 90% similar em todos os aplicativos e, assim, sugere-se partir do conteúdo da pasta <strong>/src/store</strong> do projeto <strong>Harv</strong> e fazer as alterações indicadas nos passos seguintes.
+<br>
+<br></p>
+<h3 id="passo-2-alterar-o-arquivo-srcstoreindexts">Passo 2: Alterar o arquivo <strong>/src/store/index.ts</strong></h3>
+<p><img alt="Arquivo de definição do store" src="../images/store.png" /></p>
+<p>Neste arquivo, criamos o <em>store</em> redux e o <em>store</em> persistente, e os exportamos para uso pelo componente <strong>App</strong>, explicado na seção <a href="../3-page-routing/">2.3- Roteamento de páginas do Aplicativo</a>.</p>
+<p>Na imagem abaixo, vemos o código de renderização do componente <strong>App</strong>, onde os objetos <strong>store</strong> e <strong>Persistor</strong>, importados do arquivo <strong>/src/store/index.ts</strong>, são disponibilizados para todos os componentes <em>React</em> da árvore de renderização do aplicativo.</p>
+<p><img alt="App component" src="../images/app-component.png" /></p>
+<p><br></p>
+<p>O arquivo <strong>/src/store/index.ts</strong> é igual em todos os aplicativos, exceto pelo conteúdo atribuído à propriedade <strong>whitelist</strong> do objeto <strong>persistConfig</strong>, linha 11 no código acima.</p>
+<p>No caso do projeto <strong>Harv</strong>, usado aqui como modelo, as informações salvas são organizadas em dois objetos, um chamado <strong>'user'</strong> e outro chamado de <strong>'token'</strong>. Esses nomes podem variar de aplicativo para aplicativo e, portanto, devem ser alterados conforme o caso. Estas são as únicas alterações a serem feitas neste arquivo.<br>
+<br>
+<br></p>
+<h3 id="passo-3-alterar-o-arquivo-srcstoreducksindexts">Passo 3: Alterar o arquivo <strong>/src/store/ducks/index.ts</strong></h3>
+<p><img alt="App component" src="../images/ducks-index.png" /></p>
+<p>No caso do projeto modelo, usado aqui, estamos organizamos as informações a serem salvas no <em>store</em> em dois objetos, que chamamos de <strong>user</strong> e <strong>token</strong>, e, desse modo, as linhas 5,6,9 e 10 do código acima, refletem essas definições. Caso o seu aplicativo, tenha outros nomes escolhidos, faça as alterações necessárias nestas linhas e, basicamente, isso é tudo o que precisa ser mudado neste arquivo.<br>
+<br>
+<br></p>
+<h3 id="passo-4-alterar-os-arquivos-onde-sao-definidas-as-acoes-redux">Passo 4: Alterar o(s) arquivo(s) onde são definidas as ações <strong>redux</strong></h3>
+<p>O conteúdo da pasta <strong>/src/store</strong>, no caso do nosso projeto modelo, <strong>Harv</strong>, é este<br></p>
+<p><img alt="App component" src="../images/store-folder.png" /></p>
+<p>No caso de um projeto novo, a pasta <strong>/src/ducks</strong> e os arquivos de nome <strong>index.ts</strong> não sofrem alterações de nome, apenas de conteúdo, como vimos acima.<br></p>
+<p>Os arquivos <strong>/src/store/ducks/token.ts</strong> e <strong>/src/store/ducks/user.ts</strong> devem ser ajustados, no nome e conteúdo, em conformidade com os tipos de objetos e informações que queremos salvar no <strong>store</strong> no novo aplicativo.<br></p>
+<p>Vamos analisar o arquivo <strong>/src/store/ducks/user.ts</strong> para deixar claro seu conteúdo e o que precisa ser mudado, ou não, em novos casos.<br></p>
+<p><img alt="App component" src="../images/user-store.png" /></p>
+<p><br></p>
+<h4 id="em-primeiro-lugar">Em primeiro lugar<br></h4>
+<p>As linhas de 11 a 15, do código acima, definem as ações (<em>Actions</em>) do <strong>store</strong> que poderão ser chamadas pelos componentes React do aplicativo para salvar informações do Usuário no <strong>store</strong>. Neste caso, <strong>setUser(...)</strong> para salvar as informações de um objeto User no <strong>store</strong> e <strong>resetUser</strong> para atribuir valores vazios ou <em>default</em> ao <strong>store</strong> do Usuário.<br>
+<br></p>
+<h4 id="em-segundo-lugar">Em segundo lugar<br></h4>
+<p>As linhas de 20 a 37 definem as informações a serem armazenadas no <strong>store</strong> do Usuário, linhas 20 a 35, e as funções que devem ser usadas, no caso <strong>set</strong> e <strong>reset</strong> para executar as <em>Actions</em> definidas anteriormente.
+<br>
+<br></p>
+<h4 id="em-terceiro-lugar">Em terceiro lugar<br></h4>
+<p>As linhas de 42 a 48 criam o <em>Reducer</em> do objeto <strong>user</strong> que será utilizado pelo arquivo <strong>/src/store/ducks/index.ts</strong>, visto anteriormente e reproduzido abaixo, novamente.</p>
+<p><img alt="App component" src="../images/ducks-index.png" /></p>
+<p>Observe que, na linha 6, quando declaramos</p>
+<pre><code>import user from './user'
+</code></pre>
+<p>estamos, de fato, importando o retorno da função <strong>createReducer(...)</strong>, executada na linha 42 do arquivo anterior, uma vez que esta é declarada como <strong>export default</strong>.
+<br>
+<br></p>
+<h4 id="alteracoes-a-serem-feitas-no-arquivo">Alterações a serem feitas no arquivo<br></h4>
+<p>Considerando o apresentado anteriormente, as alterações a serem feitas neste arquivo são:<br></p>
+<ul>
+<li>Alterar os nomes das ações e do objeto, <strong>'user'</strong>, para os nomes apropriados.<br></li>
+<li>Alterar as interfaces utilizadas, na linha 11, e as interfaces correspondentes no arquivo <strong>/src/types/action.ts</strong>, o qual não havia sido citado ainda neste texto, e é apresentado abaixo.</li>
+</ul>
+<p><img alt="App component" src="../images/actions.png" />
+<br></p>
+<ul>
+<li>Alterar o objeto a ser salvo no <em>store</em>, nas linhas 20 a 35, e os nomes das funções handlers, conforme o caso.<br></li>
+<li>Alterar os nomes e interfaces utilizados em **createReducer(...), conforme os novos nomes e interfaces em uso.
+<br>
+<br></li>
+</ul>
+<p><br>
+<br></p>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../6-asynchronous-processing/" class="btn btn-neutral float-left" title="2.6- Processamento Assíncrono"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../6-asynchronous-processing/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

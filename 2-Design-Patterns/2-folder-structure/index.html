@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>2.2- Estrutura de Pastas do Projeto - Code Patterns</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2.2- Estrutura de Pastas do Projeto";
+        var mkdocs_page_input_path = "2-Design-Patterns\\2-folder-structure.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Code Patterns
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Padrões de Código<br></a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1 Clean Code</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/1-nomenclature/">1.1- Nomenclatura</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/2-code-format/">1.2- Formatação do código</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/3-flow-control/">1.3- Controle do fluxo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/4-functions/">1.4- Funções e métodos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/5-vscode-config/">1.5- Configuração VSCode</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2 Design Patterns</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../1-design-patterns/">2.1- Padrões de Design</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">2.2- Estrutura de Pastas do Projeto</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#conteudo-da-pasta-src">Conteúdo da pasta /src</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../3-page-routing/">2.3- Roteamento de páginas do Aplicativo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../4-navigation-menu/">2.4- Header e Menu de navegação do Aplicativo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../6-asynchronous-processing/">2.6- Processamento Assíncrono</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../8-state-management/">2.8- Gerenciamento de State</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Code Patterns</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>2 Design Patterns &raquo;</li>
+      <li>2.2- Estrutura de Pastas do Projeto</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="22-estrutura-de-pastas-do-projeto">2.2- Estrutura de Pastas do Projeto</h1>
+<p>Todos os projetos devem procurar seguir a estrutura de folders descrita a seguir.</p>
+<p>Na pasta principal do projeto, cujo nome é o nome do projeto, ou uma abreviação deste nome, tem-se o seguinte conteúdo:</p>
+<p><img alt="Project Folder Structure" src="../images/project-folder-structure.png" /></p>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Pasta/Arquivo</th>
+<th style="text-align: left;">Conteúdo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">.husky</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">.vscode</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">node_modules</td>
+<td style="text-align: left;">Pasta gerenciada automaticamente pelo pacote <strong>npm</strong>.  <br> Não deve ser alterada, manualmente.</td>
+</tr>
+<tr>
+<td style="text-align: center;">public</td>
+<td style="text-align: left;">Pasta onde ficam os arquivos estáticos básicos necessários para exibição <br> do aplicativo no navegador cliente, incluindo o arquivo <strong>index.html</strong>. <br> Os demais arquivos estáticos são mantidos na pasta <strong>/src/assets</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: center;">src</td>
+<td style="text-align: left;">Pasta onde fica o código do aplicativo, descrita na seção abaixo.</td>
+</tr>
+<tr>
+<td style="text-align: center;">.editorconfig</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">.gitignore</td>
+<td style="text-align: left;">Arquivo para configuração dos arquivos e pastas, que não devem <br> ser armazenados remotamente pelo gerenciador de versões <strong>Git</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: center;">.prettier</td>
+<td style="text-align: left;">Arquivo de configurações do plugin <strong>prettier</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: center;">.bitbucket-pipelines.yml</td>
+<td style="text-align: left;">Configurações para execução dos pipelines de deploy no ambiente de <strong>dev</strong>. <br> Mantido pela equipe <strong>DevOps</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: center;">lint-staged.js</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">package.json</td>
+<td style="text-align: left;">Arquivo que controla quais bibliotecas devem ser instaladas pelo <br> comando <strong>npm install</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">package-lock.json</td>
+<td style="text-align: left;">Arquivo utilizado pelo <strong>npm</strong>, em conjunto com o arquivo <strong>package.json</strong>, <br> cuja função é impedir que o <strong>npm</strong> instale versões posteriores às que <br> constam nele, visando assim reduzir problemas de compatibilidade entre <br> as versões das bibliotecas e o próprio <strong>node.js</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: center;">tsconfig.json</td>
+<td style="text-align: left;">Arquivo de configurações do <strong>TypeScript</strong>, no projeto.</td>
+</tr>
+<tr>
+<td style="text-align: center;">yarn.lock</td>
+<td style="text-align: left;">Similar ao arquivo package-lock.json, se estiver sendo usado o pacote <strong>yarn</strong>, <br> em lugar do <strong>npm</strong>.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<h2 id="conteudo-da-pasta-src">Conteúdo da pasta <strong>/src</strong></h2>
+<p>Na pasta '/src' deve-se procurar seguir os nomes de arquivos e sub-folders vistos na figura abaixo</p>
+<p><img alt="/src Folder" src="../images/src-folder.png" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Pasta/Arquivo</th>
+<th style="text-align: left;">Conteúdo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">assets</td>
+<td style="text-align: left;">Todos os ícones, imagens, áudios, etc. estáticos a serem exibidos nas diversas <br> telas e componentes do sistema.</td>
+</tr>
+<tr>
+<td style="text-align: center;">components</td>
+<td style="text-align: left;">Todos os componentes do aplicativo, incluindo modais, <br> que não são telas do sistema.</td>
+</tr>
+<tr>
+<td style="text-align: center;">context</td>
+<td style="text-align: left;">Todos os componentes que provêm contexto no aplicativo.</td>
+</tr>
+<tr>
+<td style="text-align: center;">hooks</td>
+<td style="text-align: left;">Todos os componentes do tipo <em>Hook</em>.</td>
+</tr>
+<tr>
+<td style="text-align: center;">mocks</td>
+<td style="text-align: left;">Todos os componentes ou estruturas com dados mocados.</td>
+</tr>
+<tr>
+<td style="text-align: center;">routes</td>
+<td style="text-align: left;">O componente <strong>Router</strong> e todo o código que implementa o roteamento e <br> navegação entre páginas, no aplicativo.</td>
+</tr>
+<tr>
+<td style="text-align: center;">services</td>
+<td style="text-align: left;">Arquivos que implementam serviços de acesso a APIs, backend, bancos de dados, <br> serviços de storage, etc., cujas funções, são, normalmente, chamadas pelas funções <br> (métodos) dos componentes declarados na pasta <strong>components</strong> ou na pasta <strong>views</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: center;">store</td>
+<td style="text-align: left;">Código que implementa o gerenciamento de state usando <strong>react-redux</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: center;">styles</td>
+<td style="text-align: left;">Código que define os temas e estilos padrão do aplicativo.</td>
+</tr>
+<tr>
+<td style="text-align: center;">types</td>
+<td style="text-align: left;">Declarações das interfaces e tipos typescript usadas no aplicativo.</td>
+</tr>
+<tr>
+<td style="text-align: center;">utils</td>
+<td style="text-align: left;">Funções genéricas e auxiliares para a implementação do aplicativo.</td>
+</tr>
+<tr>
+<td style="text-align: center;">views</td>
+<td style="text-align: left;">Todos os componentes que são telas do aplicativo.</td>
+</tr>
+<tr>
+<td style="text-align: center;">App.tsx</td>
+<td style="text-align: left;">Este arquivo declara o componente raiz do aplicativo, sempre chamado de <strong>App</strong>, <br> o qual inicia a renderização do componente <strong>Routes</strong>, que por sua vez, controla <br> a renderização das demais telas do sistema. <br> A seção <a href="">2.3- Programa - Roteamento de páginas</a> apresenta mais detalhes sobre <br> o funcionamento destes componentes.</td>
+</tr>
+<tr>
+<td style="text-align: center;">index.tsx</td>
+<td style="text-align: left;">Este arquivo é gerado automaticamente pelo script <em>create-react-app</em>, é padrão em <br> todos os frontends e, basicamente, é usado para vincular o componente React raiz, <br> do aplicativo, ao elemento HTML que apresenta o conteúdo da página de entrada <br> do aplicativo. <br> <br> <img alt="index.tsx contents" src="../images/index.tsx.png" /> <br> <br> Como padrão, sempre chamamos o componente React raiz de 'App' e o elemento <br> HTML, que apresenta o conteúdo da página index.html, de 'root', como se observa <br> na figura acima. Além disso, o arquivo 'index.html', é sempre criado na pasta '/public' <br> pelo script <em>create-react-app</em>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../1-design-patterns/" class="btn btn-neutral float-left" title="2.1- Padrões de Design"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../3-page-routing/" class="btn btn-neutral float-right" title="2.3- Roteamento de páginas do Aplicativo">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../1-design-patterns/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../3-page-routing/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>2.1- Padrões de Design - Code Patterns</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2.1- Padr\u00f5es de Design";
+        var mkdocs_page_input_path = "2-Design-Patterns\\1-design-patterns.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Code Patterns
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Padrões de Código<br></a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1 Clean Code</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/1-nomenclature/">1.1- Nomenclatura</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/2-code-format/">1.2- Formatação do código</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/3-flow-control/">1.3- Controle do fluxo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/4-functions/">1.4- Funções e métodos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/5-vscode-config/">1.5- Configuração VSCode</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2 Design Patterns</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">2.1- Padrões de Design</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2-folder-structure/">2.2- Estrutura de Pastas do Projeto</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../3-page-routing/">2.3- Roteamento de páginas do Aplicativo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../4-navigation-menu/">2.4- Header e Menu de navegação do Aplicativo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../6-asynchronous-processing/">2.6- Processamento Assíncrono</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../8-state-management/">2.8- Gerenciamento de State</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Code Patterns</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>2 Design Patterns &raquo;</li>
+      <li>2.1- Padrões de Design</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="21-padroes-de-design">2.1- Padrões de Design</h1>
+<p>Os padrões descritos aqui não são os 23 Design Patterns tornados 'clássicos' pelo livro <a href="https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612">Design Patterns, Elements of Reusable Object Oriented Software</a>, cuja primeira edição data de 1994.<br>
+Caso tenha interesse, existe um site muito didático sobre eles <a href="https://refactoring.guru/design-patterns">aqui</a>.</p>
+<p>Neste capítulo, descrevemos padrões atualmente adotados no código BuildBox, organizados nas categorias a seguir.</p>
+<ul>
+<li><a href="../2-folder-structure/">2.1- Programa - Estrutura de pastas do projeto</a><br></li>
+<li><a href="">2.2- Programa - Configuração de estilos</a><br></li>
+<li><a href="../3-page-routing/">2.3- Programa - Roteamento de páginas</a><br></li>
+<li><a href="../4-navigation-menu/">2.4- Programa - Menu(s) de navegação</a><br></li>
+<li><a href="">2.5- Programa - Tratamento de erros</a><br></li>
+<li><a href="../6-asynchronous-processing/">2.6- Programa - Processamento Assíncrono</a><br></li>
+<li><a href="">2.7- Programa - Acesso a APIs</a><br></li>
+<li><a href="../8-state-management/">2.8- Programa - Gerenciamento de <em>State</em></a><br></li>
+<li><a href="">2.9- Programa - Persistência no <em>Client</em></a><br></li>
+<li><a href="">2.10- Programa - Autenticação</a><br></li>
+<li><a href="">2.11- Componentes - Coesão e Reuso</a><br></li>
+<li><a href="">2.12- Componentes - Princípios SOLID</a><br></li>
+<li><a href="">2.13- Componentes - Controller/View</a><br></li>
+<li><a href="">2.14- Componentes - Formulários</a><br></li>
+<li><a href="">2.15- Componentes - Hooks</a><br></li>
+</ul>
+<p><br></p>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../1-Clean-Code/5-vscode-config/" class="btn btn-neutral float-left" title="1.5- Configuração VSCode"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../2-folder-structure/" class="btn btn-neutral float-right" title="2.2- Estrutura de Pastas do Projeto">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../1-Clean-Code/5-vscode-config/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../2-folder-structure/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
