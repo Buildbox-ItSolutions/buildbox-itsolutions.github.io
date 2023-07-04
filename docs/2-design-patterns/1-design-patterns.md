@@ -9,9 +9,9 @@ Neste capítulo, descrevemos padrões atualmente adotados no código BuildBox, o
 - [2.2- Programa - Configuração de estilos]()<br>
 - [2.3- Programa - Roteamento de páginas](3-page-routing.md)<br>
 - [2.4- Programa - Menu(s) de navegação](4-navigation-menu.md)<br>
-- [2.5- Programa - Tratamento de erros]()<br>
-- [2.6- Programa - Processamento Assíncrono](6-asynchronous-processing.md)<br>
-- [2.7- Programa - Acesso a APIs]()<br>
+- [2.5- Programa - Processamento Assíncrono](5-asynchronous-processing.md)
+- [2.6- Programa - Acesso a APIs](6-api-access.md)
+- [2.7- Programa - Tratamento de erros](7-error-treatment.md)
 - [2.8- Programa - Gerenciamento de *State*](8-state-management.md)<br>
 - [2.9- Programa - Persistência no *Client*]()<br>
 - [2.10- Programa - Autenticação]()<br>
