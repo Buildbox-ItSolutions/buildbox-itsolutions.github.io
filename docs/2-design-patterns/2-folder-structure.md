@@ -1,4 +1,4 @@
-# Estrutura de Pastas do Projeto
+# 2.2- Estrutura de Pastas do Projeto
 
 Todos os projetos devem procurar seguir a estrutura de folders descrita a seguir.
 

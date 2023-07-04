@@ -1,4 +1,4 @@
-# Processamento Assíncrono
+# 2.6- Processamento Assíncrono
 
 Sempre que for necessário aguardar um processamento assíncrono, cujo tempo de execução não pode ser controlado pelo aplicativo, devem ser usadas as *keywords* **async** e **await**, de forma a garantir que o aplicativo não trave o *loop de eventos* do *engine javascript* (o que poderia produzir a experiência de travamento no navegador, para o usuário, no caso de frontend). A mesma regra deve ser seguida no backend, usando node.js ou em dispositivos *mobile*.<br>
 

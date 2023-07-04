@@ -1,4 +1,4 @@
-# Header e Menu de navegação do Aplicativo
+# 2.4- Header e Menu de navegação do Aplicativo
 
 Além do controle de navegação, visto na seção [Roteamento de páginas](2-Design-Patterns/page-routing.md), existe um componente padrão, chamado **Layout**, que produz a exibição de um Header, na parte superior da tela, e de um Menu de Navegação lateral, no lado esquerdo da tela, o qual também participa do controle de navegação de páginas padrão, do aplicativo.<br>
 
