@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>2.6- Processamento Assíncrono - Code Patterns</title>
+    <title>2.7- Tratamento de Erros - Code Patterns</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "2.6- Processamento Ass\u00edncrono";
-        var mkdocs_page_input_path = "2-Design-Patterns\\6-asynchronous-processing.md";
+        var mkdocs_page_name = "2.7- Tratamento de Erros";
+        var mkdocs_page_input_path = "2-Design-Patterns\\7-error-treatment.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -67,7 +67,11 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../4-navigation-menu/">2.4- Header e Menu de navegação do Aplicativo</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">2.6- Processamento Assíncrono</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../5-asynchronous-processing/">2.5- Processamento Assíncrono</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../6-api-access/">2.6- Acesso a APIs externas</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">2.7- Tratamento de Erros</a>
     <ul class="current">
     </ul>
                   </li>
@@ -89,7 +93,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
           <li>2 Design Patterns &raquo;</li>
-      <li>2.6- Processamento Assíncrono</li>
+      <li>2.7- Tratamento de Erros</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -98,48 +102,37 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="26-processamento-assincrono">2.6- Processamento Assíncrono</h1>
-<p>Sempre que for necessário aguardar um processamento assíncrono, cujo tempo de execução não pode ser controlado pelo aplicativo, devem ser usadas as <em>keywords</em> <strong>async</strong> e <strong>await</strong>, de forma a garantir que o aplicativo não trave o <em>loop de eventos</em> do <em>engine javascript</em> (o que poderia produzir a experiência de travamento no navegador, para o usuário, no caso de frontend). A mesma regra deve ser seguida no backend, usando node.js ou em dispositivos <em>mobile</em>.<br></p>
+                <h1 id="27-tratamento-de-erros">2.7- Tratamento de Erros</h1>
 <p><br></p>
-<p>Exemplos deste tipo de situação, em um frontend, são:
-- Acesso ao backend
-- Acesso a uma API externa, por exemplo, Google ou AWS Storage.
-- Acesso direto a um Banco de Dados, via nbiblioteca SDK ou via uma API
-- Execução de qualquer função que retorne uma Promessa (Promise)</p>
-<p><br>
+<p>O escopo desta seção, atualmente, resume-se a erros ocorridos no acesso a APIs externas.<br></p>
+<p>O objetivo por detrás deste design é concentrar o código de tratamento de erros em um único local, de modo a reduzir inconsistências em manutenções futuras e de modo a deixar todo o código do aplicativo mais leve, por estar 'limpo' de código que trata erros.</p>
+<p>O que foi feito foi, incluir 2 funções anônimas para tratamento de erros nos interceptadores do objeto <strong>axiosInstance</strong>, definidas no arquivo <strong>/src/service/axiosInstance</strong>, conforme explicado na seção anterior, <a href="../6-api-access/">2.6- Acesso a APIs externas</a>.</p>
+<p>Uma função intercepta os erros ocorridos no envio de todas as requests e a outra intercepta os erros ocorridos na chegada de todas as respostas da API. Tais funções chamam, então, a função <strong>handleError(err)</strong> definida no arquivo <strong>/src/utils/handleError.ts</strong>.</p>
+<p>Este design é interessante porque torna desnecessário capturar erros, usando as keywords <strong>try</strong> e <strong>catch</strong>, nas funções de mais alto nível, que chamam os métodos do objeto <strong>axiosInstance</strong>, por exemplo, no código abaixo.</p>
+<p><img alt="Função patchProducts" src="../images/patch-products.png" /></p>
+<p>Isto acontece, porque tais erros, quando ocorrem, são capturados e tratados antes pela função <strong>handleError(...)</strong>, como explicado acima.</p>
+<p>No código exemplo acima, se a função <strong>patchProducts</strong> alcançou a linha</p>
+<pre><code>return response.data
+</code></pre>
+<p>isso significa que não ocorreram erros de comunicação, pois se tivessem ocorrido, já teriam sido capturados e direcionados para a função <strong>handleError(...)</strong>.<br>
 <br></p>
-<p>Vamos fornecer alguns exemplos de como fazer isso. <br></p>
-<ul>
-<li>Acesso ao backend:<br></li>
-</ul>
-<p><img alt="Acesso ao Backend" src="../images/backend-access.png" />
+<p>Por fim, vamos explicar o funcionamento da função <strong>handleError(...)</strong>, exibida abaixo.</p>
+<p><img alt="Função handleError" src="../images/handle-error.png" /></p>
+<p>A função <strong>handleError(...)</strong> recebe como parâmetro o objeto retornado pela resposta do método utilizado do objeto <strong>axiosInstance</strong>. Por exemplo, se foi chamado o método <strong>axiosInstance.post</strong>, esta função irá receber o objeto de resposta do método <strong>.post</strong>.</p>
+<p>Basicamente, a função verifica se houve um erro de comunicação 401, que indicaria problemas de autenticação do usuário na <em>request</em> e, caso tenha recebido esse tipo de erro, força o <em>logout</em> do aplicativo encerrando a sessão, chamando para isso a função <strong>logout()</strong>, definida no arquivo <strong>/src/utils/session.ts</strong>, reproduzida abaixo.<br></p>
+<p><img alt="Função logout" src="../images/logout.png" /></p>
+<p>Observe, que o <strong>store redux</strong> é reiniciado, por essa função.<br>
 <br></p>
-<p>Neste caso, a <em>keyword</em> <strong>await</strong> precisa ser usada antes da função <strong>axiosInstance.patch(...)</strong>, para garantir que a função só retorna quando os dados em <strong>response.data</strong> estiverem prontos.<br>
-Enquanto isso não ocorre, o <em>engine</em> JavaScript passa o controle do fluxo para o <strong>loop de eventos</strong> que irá determinar que outras <em>threads</em> do aplicativo ou de outros sistemas, devem ser executados, impedindo assim, que o seu navegador trave.</p>
-<p><br>
-<br></p>
-<ul>
-<li>Acesso a uma API externa:<br></li>
-</ul>
-<p><img alt="Acesso a API externa" src="../images/bank-api-access.png" />
+<p>No caso de o erro, não ser um problema de autenticação, a função <strong>handleError(...)</strong> apenas exibe na tela um objeto do tipo <em>toaster</em>, informando ao usuário o erro ocorrido.</p>
+<p>Por fim, caso a resposta vinda do <em>backend</em> não contenha <em>status code</em> ou uma <em>message</em> de erro, geralmente por <em>timeout</em> na resposta, <strong>handleError(...)</strong> exibe o objeto do tipo <em>toaster</em>, informando ao usuário que o servidor está indisponível, o que pode indicar problemas no servidor, na internet ou intranet.
 <br>
-Similar ao exemplo anterior.<br>
-<br></p>
-<p>Um ponto importante, aqui, diz respeito à chamada deste tipo de função nas funções de nível mais elevado. É importante procurar usar sempre as <em>keywords</em> <strong>async</strong> e <strong>await</strong>, ao invés de callbacks ou de chaining com o método <strong>.then(...)</strong>.</p>
-<p>Neste caso, a opção abaixo<br></p>
-<p><img alt="Acesso a API externa" src="../images/await-call.png" />
-<br></p>
-<p>é a recomendada, em relação à versão chained, abaixo<br></p>
-<p><img alt="Acesso a API externa" src="../images/chained-then.png" />
-<br></p>
-<p><br>
 <br></p>
 <hr />
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../4-navigation-menu/" class="btn btn-neutral float-left" title="2.4- Header e Menu de navegação do Aplicativo"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../6-api-access/" class="btn btn-neutral float-left" title="2.6- Acesso a APIs externas"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../8-state-management/" class="btn btn-neutral float-right" title="2.8- Gerenciamento de State">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -163,7 +156,7 @@ Similar ao exemplo anterior.<br>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../4-navigation-menu/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../6-api-access/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../8-state-management/" style="color: #fcfcfc">Next &raquo;</a></span>
