@@ -75,19 +75,19 @@ Na seção **Design Patterns** são apresentados os principais padrões de códi
 
 ***
 
-* [2- Design Patterns (Padrões de Design)](2-Design-Patterns/1-design-patterns.md)
-    * [2.1- Programa - Estrutura de pastas do projeto](2-Design-Patterns/2-folder-structure.md)
+* [2- Design Patterns (Padrões de Design)](2-Design-Patterns/01-design-patterns.md)
+    * [2.1- Programa - Estrutura de pastas do projeto](2-Design-Patterns/02-folder-structure.md)
     * [2.2- Programa - Configuração de estilos]()
-    * [2.3- Programa - Roteamento de páginas](2-Design-Patterns/3-page-routing.md)
-    * [2.4- Programa - Menu(s) de navegação](2-Design-Patterns/4-navigation-menu.md)
-    * [2.5- Programa - Processamento Assíncrono](2-Design-Patterns/5-asynchronous-processing.md)
-    * [2.6- Programa - Acesso a APIs](2-Design-Patterns/6-api-access.md)
-    * [2.7- Programa - Tratamento de erros](2-Design-Patterns/7-error-treatment.md)
-    * [2.8- Programa - Gerenciamento de *State*](2-Design-Patterns/8-state-management.md)
+    * [2.3- Programa - Roteamento de páginas](2-Design-Patterns/03-page-routing.md)
+    * [2.4- Programa - Menu(s) de navegação](2-Design-Patterns/04-navigation-menu.md)
+    * [2.5- Programa - Processamento Assíncrono](2-Design-Patterns/05-asynchronous-processing.md)
+    * [2.6- Programa - Acesso a APIs](2-Design-Patterns/06-api-access.md)
+    * [2.7- Programa - Tratamento de erros](2-Design-Patterns/07-error-treatment.md)
+    * [2.8- Programa - Gerenciamento de *State*](2-Design-Patterns/08-state-management.md)
     * [2.9- Programa - Autenticação]()
     * [2.10- Componentes - Coesão e Reuso]()
     * [2.11- Componentes - Princípios SOLID]()
-    * [2.12- Componentes - Controller/View]()
+    * [2.12- Componentes - Controller/View](2-Design-Patterns/12-controller-view.md)
     * [2.13- Componentes - Formulários]()
     * [2.14- Componentes - Hooks]()
 <br>

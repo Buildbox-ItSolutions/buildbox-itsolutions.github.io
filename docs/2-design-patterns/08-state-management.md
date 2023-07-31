@@ -40,7 +40,7 @@ O código é 90% similar em todos os aplicativos e, assim, sugere-se partir do c
 ![Arquivo de definição do store](./images/store.png)
 
 
-Neste arquivo, criamos o *store* redux e o *store* persistente, e os exportamos para uso pelo componente **App**, explicado na seção [2.3- Roteamento de páginas do Aplicativo](3-page-routing.md).
+Neste arquivo, criamos o *store* redux e o *store* persistente, e os exportamos para uso pelo componente **App**, explicado na seção [2.3- Roteamento de páginas do Aplicativo](03-page-routing.md).
 
 Na imagem abaixo, vemos o código de renderização do componente **App**, onde os objetos **store** e **Persistor**, importados do arquivo **/src/store/index.ts**, são disponibilizados para todos os componentes *React* da árvore de renderização do aplicativo.
 

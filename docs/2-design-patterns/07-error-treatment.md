@@ -6,7 +6,7 @@ O escopo desta seção, atualmente, resume-se a erros ocorridos no acesso a APIs
 
 O objetivo por detrás deste design é concentrar o código de tratamento de erros em um único local, de modo a reduzir inconsistências em manutenções futuras e de modo a deixar todo o código do aplicativo mais leve, por estar 'limpo' de código que trata erros.
 
-O que foi feito foi, incluir 2 funções anônimas para tratamento de erros nos interceptadores do objeto **axiosInstance**, definidas no arquivo **/src/service/axiosInstance**, conforme explicado na seção anterior, [2.6- Acesso a APIs externas](6-api-access.md).
+O que foi feito foi, incluir 2 funções anônimas para tratamento de erros nos interceptadores do objeto **axiosInstance**, definidas no arquivo **/src/service/axiosInstance**, conforme explicado na seção anterior, [2.6- Acesso a APIs externas](06-api-access.md).
 
 Uma função intercepta os erros ocorridos no envio de todas as requests e a outra intercepta os erros ocorridos na chegada de todas as respostas da API. Tais funções chamam, então, a função **handleError(err)** definida no arquivo **/src/utils/handleError.ts**.
 
