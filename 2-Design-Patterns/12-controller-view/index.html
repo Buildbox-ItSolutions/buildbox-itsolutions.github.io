@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>2.12- Controller/View - Code Patterns</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2.12- Controller/View";
+        var mkdocs_page_input_path = "2-Design-Patterns\\12-controller-view.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Code Patterns
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Padrões de Código<br></a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1 Clean Code</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/1-nomenclature/">1.1- Nomenclatura</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/2-code-format/">1.2- Formatação do código</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/3-flow-control/">1.3- Controle do fluxo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/4-functions/">1.4- Funções e métodos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1-Clean-Code/5-vscode-config/">1.5- Configuração VSCode</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2 Design Patterns</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../01-design-patterns/">2.1- Padrões de Design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../02-folder-structure/">2.2- Estrutura de Pastas do Projeto</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../03-page-routing/">2.3- Roteamento de páginas do Aplicativo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../04-navigation-menu/">2.4- Header e Menu de navegação do Aplicativo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../05-asynchronous-processing/">2.5- Processamento Assíncrono</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../06-api-access/">2.6- Acesso a APIs externas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../07-error-treatment/">2.7- Tratamento de Erros</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../08-state-management/">2.8- Gerenciamento de State</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">2.12- Controller/View</a>
+    <ul class="current">
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Code Patterns</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>2 Design Patterns &raquo;</li>
+      <li class="breadcrumb-item active">2.12- Controller/View</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="212-controllerview">2.12- Controller/View</h1>
+<p><br></p>
+<p>O padrão (ou <em>design pattern</em>) <em>Controller/View</em> é uma forma de reorganizar um componente <strong>React</strong> em dois componentes, uma parte que chamamos de <em>Controller</em> e uma parte que chamamos de <em>View</em>, com as responsabilidades descritas abaixo.</p>
+<p><strong>View</strong>
+- Faz toda a renderização (JSX) do componente.
+- Não possui nenhum state e todas as informações a dinâmicas a serem renderizadas são recebidas como props.</p>
+<p><strong>Controller</strong>
+- Na reorganização do componente original, a parte <em>Controller</em> fica com todos os <em>states</em> do componente original e se torna o único responsável pela aquisição e manutenção das informações desses states, portanto, todos os acessos a APIs externas e bancos de dados são feitos neste componente e, também, os <em>hooks</em> do tipo <strong>useEffect()</strong>, responsáveis pelas atualizações de state em sequência, são todos executados neste componente.
+- Não possui nenhuma rederização, exceto a chamada do respectivo componente <em>View</em>, no <strong>return</strong> final do componente <em>Controller</em>, como no código abaixo:
+<br></p>
+<p><img alt="Admin Orders Controller" src="../images/controller.png" /></p>
+<p>Neste exemplo, nosso componente <em>Controller</em> é o componente <strong>AdminOrders</strong> e o componente <em>View</em> é chamado de <strong>AdminOrdersView</strong>.</p>
+<p>Veja o código do componente <em>View</em> abaixo.
+<br></p>
+<p><img alt="Admin Orders View" src="../images/view.png" /></p>
+<p>Observe como todo o <em>state</em> fica no <em>Controller</em>, neste caso <strong>searchQuery</strong>, e como toda a lógica de renderização é mantida no componente <em>View</em></p>
+<p>Na <strong>Build</strong> adotamos sempre como padrão declarar o <em>Controller</em> e a <em>View</em> em arquivos seprados, sendo o nome do arquivo do <em>Controller</em> sempre chamado de <strong>index.tsx</strong> e o nome do arquivo que contem o componente <em>View</em> sempre chamado de <strong>view.tsx</strong>.</p>
+<p>Outra regra que usamos é que este padrão é usado apenas para componentes mais complexos, com mais código e lógica, sendo normalmente usado nos componentes que representam telas, localizados na pasta <strong>/src/views</strong> e não sendo usado nos componentes salvos na pasta <strong>src/components</strong>, pelo fato destes serem componentes reusáveis, tipicamente, mais simples.</p>
+<p>Outro exemplo, um pouquinho mais complexo, é mostrado a seguir, o componente <strong>EmailActivation</strong>. Primeiro, mostramos a parte <em>Controller</em>, abaixo.</p>
+<p><img alt="EmailActivation Controller" src="../images/email-activation-controller.png" /></p>
+<p>e depois a parte <em>View</em>, a seguir</p>
+<p><img alt="EmailActivation View" src="../images/email-activation-view.png" /></p>
+<p>Note como todos os <em>state</em>, neste caso declarados em <em>Hooks</em> e como toda a lógica de busca e manutenção desses states estão no <em>Controller</em> e como toda a lógica de renderização foi colocada na <em>View</em>.</p>
+<p><br></p>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../08-state-management/" class="btn btn-neutral float-left" title="2.8- Gerenciamento de State"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../08-state-management/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
