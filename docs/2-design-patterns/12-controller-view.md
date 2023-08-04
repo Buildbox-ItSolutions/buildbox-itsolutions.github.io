@@ -38,8 +38,6 @@ e depois a parte *View*, a seguir
 
 Note como todos os *state*, neste caso declarados em *Hooks* e como toda a lógica de busca e manutenção desses states estão no *Controller* e como toda a lógica de renderização foi colocada na *View*.
 
-
-<br>
 <br>
 
 ***
